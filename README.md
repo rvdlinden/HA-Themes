@@ -45,7 +45,9 @@ Automatisch, Licht of Donker.
 - Kleurpalet voor HA 2025.8+ (`ha-color-primary-*`) en grafiekkleuren.
 - Afgestemde syntax-highlighting per theme en modus.
 - In de lichte modus haalt tekst in de accentkleur minimaal 4.5:1 contrast.
-- Compacte rijen (32px) en compactere kaart-padding via card-mod.
+- Compacte rijen (minimaal 32px) en compactere kaart-padding via card-mod.
+  Rijen met hogere inhoud, zoals een status op twee regels, `secondary_info`,
+  een invoerveld of een dropdown, groeien mee in plaats van te overlappen.
 
 ## Vereisten
 

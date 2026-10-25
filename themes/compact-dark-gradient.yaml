@@ -34,9 +34,29 @@ Compact Lime Gradient:
   card-mod-theme: Compact Lime Gradient
 
   # --- RIJHOOGTE ---
+  # Geen vaste hoogte: een rij is minimaal 32px en groeit mee als de inhoud
+  # hoger is (status op twee regels, secondary_info, invoerveld, dropdown).
+  # Een vaste 32px liet die inhoud over de volgende rij heen lopen.
+  # Wat een gewone rij hoger dan 32px maakte, wordt hieronder afgevangen:
+  #   - icoon-badge 40px  -> 32px
+  #   - toggle/knoppen hebben een klikvlak van 40-48px; met een negatieve
+  #     marge blijft dat klikvlak even groot, maar telt het niet mee
+  #     voor de rijhoogte
   card-mod-row-yaml: |
     .: |
       hui-generic-entity-row {
+        min-height: 32px;
+      }
+      ha-entity-toggle {
+        margin-block: -4px;
+      }
+      ha-cover-controls,
+      ha-cover-tilt-controls,
+      .controls {
+        margin-block: -8px;
+      }
+    hui-generic-entity-row $: |
+      state-badge {
         height: 32px !important;
       }
 
@@ -665,9 +685,29 @@ Compact Violet Gradient:
   card-mod-theme: Compact Violet Gradient
 
   # --- RIJHOOGTE ---
+  # Geen vaste hoogte: een rij is minimaal 32px en groeit mee als de inhoud
+  # hoger is (status op twee regels, secondary_info, invoerveld, dropdown).
+  # Een vaste 32px liet die inhoud over de volgende rij heen lopen.
+  # Wat een gewone rij hoger dan 32px maakte, wordt hieronder afgevangen:
+  #   - icoon-badge 40px  -> 32px
+  #   - toggle/knoppen hebben een klikvlak van 40-48px; met een negatieve
+  #     marge blijft dat klikvlak even groot, maar telt het niet mee
+  #     voor de rijhoogte
   card-mod-row-yaml: |
     .: |
       hui-generic-entity-row {
+        min-height: 32px;
+      }
+      ha-entity-toggle {
+        margin-block: -4px;
+      }
+      ha-cover-controls,
+      ha-cover-tilt-controls,
+      .controls {
+        margin-block: -8px;
+      }
+    hui-generic-entity-row $: |
+      state-badge {
         height: 32px !important;
       }
 
@@ -1318,9 +1358,29 @@ Compact Electric Blue Gradient:
   card-mod-theme: Compact Electric Blue Gradient
 
   # --- RIJHOOGTE ---
+  # Geen vaste hoogte: een rij is minimaal 32px en groeit mee als de inhoud
+  # hoger is (status op twee regels, secondary_info, invoerveld, dropdown).
+  # Een vaste 32px liet die inhoud over de volgende rij heen lopen.
+  # Wat een gewone rij hoger dan 32px maakte, wordt hieronder afgevangen:
+  #   - icoon-badge 40px  -> 32px
+  #   - toggle/knoppen hebben een klikvlak van 40-48px; met een negatieve
+  #     marge blijft dat klikvlak even groot, maar telt het niet mee
+  #     voor de rijhoogte
   card-mod-row-yaml: |
     .: |
       hui-generic-entity-row {
+        min-height: 32px;
+      }
+      ha-entity-toggle {
+        margin-block: -4px;
+      }
+      ha-cover-controls,
+      ha-cover-tilt-controls,
+      .controls {
+        margin-block: -8px;
+      }
+    hui-generic-entity-row $: |
+      state-badge {
         height: 32px !important;
       }
 
