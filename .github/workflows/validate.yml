@@ -1,0 +1,40 @@
+name: Validate
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  yamllint:
+    name: YAML syntax
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Parse theme file
+        run: |
+          python3 - <<'PY'
+          import sys, yaml
+          path = "themes/compact-dark-gradient.yaml"
+          with open(path, encoding="utf-8") as f:
+              data = yaml.safe_load(f)
+          errors = 0
+          for name, theme in data.items():
+              if theme.get("card-mod-theme") != name:
+                  print(f"::error file={path}::card-mod-theme of '{name}' does not match the theme name")
+                  errors += 1
+          print(f"Found {len(data)} themes: {', '.join(data)}")
+          sys.exit(1 if errors else 0)
+          PY
+
+  hacs:
+    name: HACS validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: hacs/action@main
+        with:
+          category: theme
