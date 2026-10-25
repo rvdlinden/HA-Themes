@@ -45,7 +45,8 @@ Automatisch, Licht of Donker.
 - Kleurpalet voor HA 2025.8+ (`ha-color-primary-*`) en grafiekkleuren.
 - Afgestemde syntax-highlighting per theme en modus.
 - In de lichte modus haalt tekst in de accentkleur minimaal 4.5:1 contrast.
-- Compacte rijen (minimaal 32px) en compactere kaart-padding via card-mod.
+- Compacte rijen (minimaal 32px) en compactere kaart-padding via
+  [UI eXtension (UIX)](https://uix.lf.technology/).
   Rijen met hogere inhoud, zoals een status op twee regels, `secondary_info`,
   een invoerveld of een dropdown, groeien mee in plaats van te overlappen.
 
@@ -53,9 +54,15 @@ Automatisch, Licht of Donker.
 
 - Home Assistant **2025.8** of nieuwer (voor het nieuwe kleurpalet; oudere
   versies werken grotendeels, maar negeren die variabelen).
-- [card-mod](https://github.com/thomasloven/lovelace-card-mod) (via HACS) voor
-  de compacte rijen en de kaart-styling. Zonder card-mod werken de kleuren wel,
-  maar niet de compacte layout.
+- [UI eXtension (UIX)](https://uix.lf.technology/) (via HACS), de opvolger
+  van card-mod, voor de compacte rijen en de kaart-styling. Zonder UIX werken
+  de kleuren wel, maar niet de compacte layout.
+
+  UIX is een integratie: voeg hem na het downloaden in HACS toe via
+  **Instellingen** → **Apparaten & diensten** → **Integratie toevoegen** →
+  **UI eXtension**. Een `extra_module_url` of dashboard-resource is niet nodig.
+
+Getest met Home Assistant 2026.10.4 en UI eXtension 8.4.0.
 
 ## Installatie
 
@@ -80,7 +87,25 @@ Automatisch, Licht of Donker.
 Kopieer `themes/compact-dark-gradient.yaml` naar de map `themes/` in je
 Home Assistant-configuratie en volg daarna stap 5 t/m 7 hierboven.
 
-## Upgraden vanaf 1.x
+## Upgraden
+
+### Van 2.x naar 3.0: card-mod → UIX
+
+Card-mod laadt sinds Home Assistant 2026.8 geen `-yaml`-themevariabelen meer,
+waardoor de compacte rijen niet werkten. Vanaf 3.0 gebruiken de themes de
+variabelen van UIX (`uix-theme`, `uix-card`, `uix-row-yaml`); card-mod leest
+die niet.
+
+1. Verwijder card-mod in HACS en haal een eventuele card-mod-regel uit
+   `frontend: extra_module_url:` in `configuration.yaml`.
+2. Installeer UI eXtension via HACS en voeg de integratie toe (zie
+   [Vereisten](#vereisten)).
+3. Herstart Home Assistant.
+
+Bestaande `card_mod:`-configuratie in je eigen kaarten blijft werken: UIX
+leest die ook.
+
+### Van 1.x naar 2.0: nieuwe themanamen
 
 In 2.0 zijn de themes hernoemd, omdat ze nu zowel licht als donker zijn:
 
@@ -95,15 +120,15 @@ naam in automatiseringen of in `frontend.set_theme`, pas die dan ook aan.
 
 ## Aanpassen
 
-Elk theme bestaat uit een gedeeld deel (compacte layout en card-mod) en per
+Elk theme bestaat uit een gedeeld deel (compacte layout en UIX) en per
 modus een blok onder `modes: dark:` en `modes: light:`. De kaartrand-glow en
 afronding zijn per modus af te stellen in `ha-card-background` en
 `ha-card-border-radius`; de commentaarblokken in het YAML-bestand beschrijven
 welke waarden je waarvoor aanpast.
 
-> **Let op:** `card-mod-theme` moet exact gelijk zijn aan de themanaam.
+> **Let op:** `uix-theme` moet exact gelijk zijn aan de themanaam.
 > Hernoem je een theme, pas dan ook die waarde aan, anders wordt de
-> card-mod-styling niet toegepast.
+> UIX-styling niet toegepast.
 
 ## Licentie
 

@@ -9,13 +9,14 @@
 # Kies in je profiel het theme en daarna bij 'Themamodus' Automatisch,
 # Licht of Donker. Automatisch volgt de instelling van je apparaat.
 #
-# Vereist voor de compacte rijen en de kaart-styling: card-mod (HACS).
+# Vereist voor de compacte rijen en de kaart-styling: UI eXtension (UIX,
+# via HACS), de opvolger van card-mod.
 ##############################################################################
 
 Compact Lime Gradient:
   ##############################
   # Dit theme heeft een lichte en een donkere modus. Wat voor beide
-  # modi gelijk is (compacte layout, card-mod) staat hier bovenaan;
+  # modi gelijk is (compacte layout, UIX) staat hier bovenaan;
   # de kleuren staan per modus onder 'modes'.
   ##############################
 
@@ -27,11 +28,11 @@ Compact Lime Gradient:
   paper-item-min-height: "40px"
 
   ##############################
-  # card-mod (HACS) - vereist voor echte compacte rijen
+  # UI eXtension (UIX, via HACS) - vereist voor echte compacte rijen
   # LET OP: deze waarde MOET exact gelijk zijn aan de themanaam
-  # bovenaan, anders wordt de card-mod-styling niet toegepast.
+  # bovenaan, anders wordt de UIX-styling niet toegepast.
   ##############################
-  card-mod-theme: Compact Lime Gradient
+  uix-theme: Compact Lime Gradient
 
   # --- RIJHOOGTE ---
   # Geen vaste hoogte: een rij is minimaal 32px en groeit mee als de inhoud
@@ -42,7 +43,7 @@ Compact Lime Gradient:
   #   - toggle/knoppen hebben een klikvlak van 40-48px; met een negatieve
   #     marge blijft dat klikvlak even groot, maar telt het niet mee
   #     voor de rijhoogte
-  card-mod-row-yaml: |
+  uix-row-yaml: |
     .: |
       hui-generic-entity-row {
         min-height: 32px;
@@ -61,7 +62,7 @@ Compact Lime Gradient:
       }
 
   # --- KAART / RAND / INVOERVELDEN ---
-  card-mod-card: |
+  uix-card: |
     ha-card {
       --ha-card-border-radius: 3px;
       /* Rand transparant houden: de gradient-laag uit ha-card-background
@@ -373,7 +374,7 @@ Compact Lime Gradient:
       mdc-theme-secondary: "#6366f1"
 
       ##############################
-      # Kleuren voor de card-mod-invoervelden (zie card-mod-card)
+      # Kleuren voor de UIX-invoervelden (zie uix-card)
       ##############################
       compact-input-fill-color: "#262626"
       compact-input-ink-color: "#e8e8e8"
@@ -655,7 +656,7 @@ Compact Lime Gradient:
       mdc-theme-secondary: "#4f46e5"
 
       ##############################
-      # Kleuren voor de card-mod-invoervelden (zie card-mod-card)
+      # Kleuren voor de UIX-invoervelden (zie uix-card)
       ##############################
       compact-input-fill-color: "#eef0f2"
       compact-input-ink-color: "#1c1d1f"
@@ -666,7 +667,7 @@ Compact Lime Gradient:
 Compact Violet Gradient:
   ##############################
   # Dit theme heeft een lichte en een donkere modus. Wat voor beide
-  # modi gelijk is (compacte layout, card-mod) staat hier bovenaan;
+  # modi gelijk is (compacte layout, UIX) staat hier bovenaan;
   # de kleuren staan per modus onder 'modes'.
   ##############################
 
@@ -678,11 +679,11 @@ Compact Violet Gradient:
   paper-item-min-height: "40px"
 
   ##############################
-  # card-mod (HACS) - vereist voor echte compacte rijen
+  # UI eXtension (UIX, via HACS) - vereist voor echte compacte rijen
   # LET OP: deze waarde MOET exact gelijk zijn aan de themanaam
-  # bovenaan, anders wordt de card-mod-styling niet toegepast.
+  # bovenaan, anders wordt de UIX-styling niet toegepast.
   ##############################
-  card-mod-theme: Compact Violet Gradient
+  uix-theme: Compact Violet Gradient
 
   # --- RIJHOOGTE ---
   # Geen vaste hoogte: een rij is minimaal 32px en groeit mee als de inhoud
@@ -693,7 +694,7 @@ Compact Violet Gradient:
   #   - toggle/knoppen hebben een klikvlak van 40-48px; met een negatieve
   #     marge blijft dat klikvlak even groot, maar telt het niet mee
   #     voor de rijhoogte
-  card-mod-row-yaml: |
+  uix-row-yaml: |
     .: |
       hui-generic-entity-row {
         min-height: 32px;
@@ -712,7 +713,7 @@ Compact Violet Gradient:
       }
 
   # --- KAART / RAND / INVOERVELDEN ---
-  card-mod-card: |
+  uix-card: |
     ha-card {
       --ha-card-border-radius: 3px;
       /* Rand transparant houden: de gradient-laag uit ha-card-background
@@ -1047,7 +1048,7 @@ Compact Violet Gradient:
       mdc-theme-secondary: "#00c8d4"
 
       ##############################
-      # Kleuren voor de card-mod-invoervelden (zie card-mod-card)
+      # Kleuren voor de UIX-invoervelden (zie uix-card)
       ##############################
       compact-input-fill-color: "#262626"
       compact-input-ink-color: "#e8e8e8"
@@ -1328,7 +1329,7 @@ Compact Violet Gradient:
       mdc-theme-secondary: "#00838c"
 
       ##############################
-      # Kleuren voor de card-mod-invoervelden (zie card-mod-card)
+      # Kleuren voor de UIX-invoervelden (zie uix-card)
       ##############################
       compact-input-fill-color: "#eef0f2"
       compact-input-ink-color: "#1c1d1f"
@@ -1339,7 +1340,7 @@ Compact Violet Gradient:
 Compact Electric Blue Gradient:
   ##############################
   # Dit theme heeft een lichte en een donkere modus. Wat voor beide
-  # modi gelijk is (compacte layout, card-mod) staat hier bovenaan;
+  # modi gelijk is (compacte layout, UIX) staat hier bovenaan;
   # de kleuren staan per modus onder 'modes'.
   ##############################
 
@@ -1351,11 +1352,11 @@ Compact Electric Blue Gradient:
   paper-item-min-height: "40px"
 
   ##############################
-  # card-mod (HACS) - vereist voor echte compacte rijen
+  # UI eXtension (UIX, via HACS) - vereist voor echte compacte rijen
   # LET OP: deze waarde MOET exact gelijk zijn aan de themanaam
-  # bovenaan, anders wordt de card-mod-styling niet toegepast.
+  # bovenaan, anders wordt de UIX-styling niet toegepast.
   ##############################
-  card-mod-theme: Compact Electric Blue Gradient
+  uix-theme: Compact Electric Blue Gradient
 
   # --- RIJHOOGTE ---
   # Geen vaste hoogte: een rij is minimaal 32px en groeit mee als de inhoud
@@ -1366,7 +1367,7 @@ Compact Electric Blue Gradient:
   #   - toggle/knoppen hebben een klikvlak van 40-48px; met een negatieve
   #     marge blijft dat klikvlak even groot, maar telt het niet mee
   #     voor de rijhoogte
-  card-mod-row-yaml: |
+  uix-row-yaml: |
     .: |
       hui-generic-entity-row {
         min-height: 32px;
@@ -1385,7 +1386,7 @@ Compact Electric Blue Gradient:
       }
 
   # --- KAART / RAND / INVOERVELDEN ---
-  card-mod-card: |
+  uix-card: |
     ha-card {
       --ha-card-border-radius: 3px;
       /* Rand transparant houden: de gradient-laag uit ha-card-background
@@ -1719,7 +1720,7 @@ Compact Electric Blue Gradient:
       mdc-theme-secondary: "#e040fb"
 
       ##############################
-      # Kleuren voor de card-mod-invoervelden (zie card-mod-card)
+      # Kleuren voor de UIX-invoervelden (zie uix-card)
       ##############################
       compact-input-fill-color: "#262626"
       compact-input-ink-color: "#e8e8e8"
@@ -2001,7 +2002,7 @@ Compact Electric Blue Gradient:
       mdc-theme-secondary: "#9c27b0"
 
       ##############################
-      # Kleuren voor de card-mod-invoervelden (zie card-mod-card)
+      # Kleuren voor de UIX-invoervelden (zie uix-card)
       ##############################
       compact-input-fill-color: "#eef0f2"
       compact-input-ink-color: "#1c1d1f"

@@ -28,8 +28,11 @@ jobs:
               print(f"::error file={path}::{msg}")
               errors += 1
           for name, theme in data.items():
-              if theme.get("card-mod-theme") != name:
-                  error(f"card-mod-theme of '{name}' does not match the theme name")
+              if theme.get("uix-theme") != name:
+                  error(f"uix-theme of '{name}' does not match the theme name")
+              legacy = sorted(k for k in theme if k.startswith("card-mod-"))
+              if legacy:
+                  error(f"'{name}' still uses card-mod keys {legacy}; use the uix-* equivalents")
               modes = theme.get("modes", {})
               if set(modes) != {"dark", "light"}:
                   error(f"'{name}' must define both a dark and a light mode")
