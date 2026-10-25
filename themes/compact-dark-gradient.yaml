@@ -1,278 +1,23 @@
 ##############################################################################
-# Compact Dark Gradient themes voor Home Assistant
+# Compact Gradient themes voor Home Assistant
 #
-# Bevat drie varianten:
-#   - Compact Dark Lime Gradient
-#   - Compact Dark Violet Gradient
-#   - Compact Dark Electric Blue Gradient
+# Bevat drie themes, elk met een lichte en een donkere modus:
+#   - Compact Lime Gradient
+#   - Compact Violet Gradient
+#   - Compact Electric Blue Gradient
+#
+# Kies in je profiel het theme en daarna bij 'Themamodus' Automatisch,
+# Licht of Donker. Automatisch volgt de instelling van je apparaat.
 #
 # Vereist voor de compacte rijen en de kaart-styling: card-mod (HACS).
 ##############################################################################
 
-Compact Dark Lime Gradient:
+Compact Lime Gradient:
   ##############################
-  # Basiskleuren
+  # Dit theme heeft een lichte en een donkere modus. Wat voor beide
+  # modi gelijk is (compacte layout, card-mod) staat hier bovenaan;
+  # de kleuren staan per modus onder 'modes'.
   ##############################
-  primary-color: "#aeea00"
-  accent-color: "#aeea00"
-  light-primary-color: "#c6ff4a"
-  dark-primary-color: "#6366f1"
-
-  ##############################
-  # Kleuren-palette (HA 2025.8+)
-  ##############################
-  ha-color-primary-05: "#0d1a00"
-  ha-color-primary-10: "#1a3300"
-  ha-color-primary-20: "#2e5a00"
-  ha-color-primary-30: "#437f00"
-  ha-color-primary-40: "#6aa800"
-  ha-color-primary-50: "#8fce00"
-  ha-color-primary-60: "#aeea00"   # basis lime-highlight
-  ha-color-primary-70: "#c2f23f"
-  ha-color-primary-80: "#d7f77a"
-  ha-color-primary-90: "#e9fbb8"
-  ha-color-primary-95: "#f4fdde"
-
-  graph-color-1: "#aeea00"   # lime
-  graph-color-2: "#6366f1"   # indigo
-  graph-color-3: "#437f00"   # lime donker
-  graph-color-4: "#a5abff"   # indigo licht
-  graph-color-5: "#d7f77a"   # lime licht
-  graph-color-6: "#2e2b96"   # indigo donker
-
-  ##############################
-  # Achtergronden
-  #
-  # primary-background-color MOET een vlakke kleur blijven: HA zet die
-  # op veel plekken als 'background-color', waar een gradient ongeldig is.
-  # De gradient gaat daarom op 'lovelace-background' (= alleen het
-  # dashboard-canvas, niet de sidebar/dialogen).
-  ##############################
-  primary-background-color: "#0d0d0d"
-  secondary-background-color: "#141414"
-  divider-color: "rgba(255,255,255,0.07)"
-
-  lovelace-background: "radial-gradient(120% 80% at 50% 0%, #12160c 0%, #0d0d0d 55%, #0b0b0b 100%)"
-
-  ##############################
-  # Tekst
-  ##############################
-  primary-text-color: "#e8e8e8"
-  secondary-text-color: "#9aa0a6"
-  disabled-text-color: "#5f6368"
-  text-primary-color: "#0d1a00"
-
-  ##############################
-  # Kaarten - PLAT & MAT, met gradient-rand (glow linksboven)
-  #
-  # Truc: twee achtergrondlagen in EEN 'background'-shorthand.
-  #   laag 1 (padding-box) = het kaartvlak -> altijd vlak #131313
-  #   laag 2 (border-box)  = ligt ONDER de rand -> de gradient
-  # Rand zelf transparant -> laag 2 is alleen door de randring zichtbaar.
-  #
-  # PLAT/MAT:
-  #   - border-radius 3px (was 6px)
-  #   - box-shadow: none -> kaart ligt in het vlak, werpt geen schaduw
-  #   - neutrale randlijn gedempt naar 4% wit (was 8%) -> minder glans
-  #   - kaartvlak #131313 vlak; iets dichter bij de achtergrond zetten
-  #     (bv. #121212) maakt het nog matter/vlakker
-  #
-  # Afstellen:
-  #   scherper       -> ha-card-border-radius naar "2px" of "0px"
-  #   sterkere glow  -> alpha eerste stop (nu 0.90) omhoog
-  #   bredere glow   -> 140px 5px naar bv. 200px 8px
-  ##############################
-  card-background-color: "#131313"
-  ha-card-background: >-
-    linear-gradient(#131313, #131313) padding-box,
-    radial-gradient(70px 4px at 0% 0%,
-      rgba(174,234,0,0.90) 0%,
-      rgba(174,234,0,0.45) 35%,
-      rgba(174,234,0,0.14) 70%,
-      rgba(255,255,255,0.04) 100%) border-box
-  ha-card-border-radius: "3px"
-  ha-card-border-width: "1px"
-  ha-card-border-color: "transparent"
-  ha-card-box-shadow: "none"
-  ha-card-header-font-size: "18px"
-
-  ##############################
-  # Invoervelden / dropdowns / selects
-  ##############################
-  input-fill-color: "#262626"
-  input-disabled-fill-color: "#1e1e1e"
-  input-ink-color: "#e8e8e8"
-  input-label-ink-color: "#9aa0a6"
-  input-disabled-ink-color: "#c0c0c0"
-  input-placeholder-color: "#9aa0a6"
-  input-dropdown-icon-color: "#aeea00"
-  input-idle-line-color: "rgba(255,255,255,0.20)"
-  input-hover-line-color: "rgba(255,255,255,0.40)"
-  input-disabled-line-color: "rgba(255,255,255,0.10)"
-  input-outlined-idle-border-color: "rgba(255,255,255,0.20)"
-  input-outlined-hover-border-color: "rgba(255,255,255,0.40)"
-  input-outlined-disabled-border-color: "rgba(255,255,255,0.10)"
-
-  mdc-text-field-fill-color: "#262626"
-  mdc-text-field-disabled-fill-color: "#1e1e1e"
-  mdc-text-field-ink-color: "#e8e8e8"
-  mdc-text-field-label-ink-color: "#9aa0a6"
-  mdc-text-field-idle-line-color: "rgba(255,255,255,0.20)"
-  mdc-text-field-hover-line-color: "rgba(255,255,255,0.40)"
-  mdc-select-fill-color: "#262626"
-  mdc-select-disabled-fill-color: "#1e1e1e"
-  mdc-select-ink-color: "#e8e8e8"
-  mdc-select-label-ink-color: "#9aa0a6"
-  mdc-select-idle-line-color: "rgba(255,255,255,0.20)"
-  mdc-select-hover-line-color: "rgba(255,255,255,0.40)"
-  mdc-select-dropdown-icon-color: "#aeea00"
-
-  mdc-theme-surface: "#262626"
-  mdc-theme-on-surface: "#e8e8e8"
-  mdc-dialog-scrim-color: "rgba(0,0,0,0.65)"
-  menu-surface-background-color: "#262626"
-
-  paper-input-container-color: "#9aa0a6"
-  paper-input-container-focus-color: "#aeea00"
-  paper-input-container-input-color: "#e8e8e8"
-
-  ##############################
-  # Kaart-/YAML-editor, ha-form & dialogen
-  ##############################
-  ha-color-form-background: "#262626"
-  ha-color-form-background-hover: "#2e2e2e"
-  ha-color-form-background-disabled: "rgba(38,38,40,0.5)"
-  ha-color-fill-neutral-quiet-hover: "#2e2e2e"
-
-  ha-color-fill-warning-quiet-resting: "rgba(255,152,0,0.12)"
-  ha-color-fill-warning-quiet-hover: "rgba(255,152,0,0.18)"
-  ha-color-fill-warning-normal-resting: "rgba(255,152,0,0.15)"
-  ha-color-fill-warning-normal-hover: "rgba(255,152,0,0.22)"
-  ha-color-fill-warning-normal-active: "rgba(255,152,0,0.28)"
-  ha-color-on-warning-quiet: "#ffb74d"
-  ha-color-on-warning-normal: "#ffb74d"
-  ha-color-fill-danger-quiet-resting: "rgba(234,114,135,0.12)"
-  ha-color-fill-danger-quiet-hover: "rgba(234,114,135,0.18)"
-  ha-color-fill-danger-normal-resting: "rgba(234,114,135,0.15)"
-  ha-color-fill-danger-normal-hover: "rgba(234,114,135,0.22)"
-  ha-color-fill-danger-normal-active: "rgba(234,114,135,0.28)"
-  ha-color-on-danger-quiet: "#ea7287"
-  ha-color-on-danger-normal: "#ea7287"
-  input-background-color: "#262626"
-  input-disabled-label-ink-color: "#8a8a8a"
-  clear-background-color: "#262626"
-  data-table-background-color: "#1e1e1e"
-  paper-dialog-background-color: "#1e1e1e"
-  ha-dialog-border-radius: "4px"
-  ha-tooltip-background-color: "#262626"
-  ha-tooltip-color: "#e8e8e8"
-
-  code-editor-background-color: "#161616"
-  markdown-code-background-color: "#161616"
-  codemirror-meta: "#e8e8e8"
-  codemirror-property: "#aeea00"
-  codemirror-atom: "#aeea00"
-  codemirror-string: "#77c4e5"
-  codemirror-keyword: "#8ca9ff"
-  codemirror-number: "#ff8a3d"
-  codemirror-comment: "#9aa0a6"
-  codemirror-operator: "#e8e8e8"
-  codemirror-variable: "#e8e8e8"
-  codemirror-variable-2: "#aeea00"
-  codemirror-variable-3: "#77c4e5"
-  codemirror-def: "#77c4e5"
-  codemirror-tag: "#8ca9ff"
-  codemirror-attribute: "#aeea00"
-
-  ##############################
-  # App header
-  ##############################
-  app-header-background-color: "#161616"
-  app-header-text-color: "#e8e8e8"
-  app-header-selection-bar-color: "#aeea00"
-
-  ##############################
-  # Sidebar
-  ##############################
-  sidebar-background-color: "#161616"
-  sidebar-icon-color: "#9aa0a6"
-  sidebar-text-color: "#e8e8e8"
-  sidebar-selected-background-color: "#1e1e1e"
-  sidebar-selected-icon-color: "#aeea00"
-  sidebar-selected-text-color: "#aeea00"
-
-  ##############################
-  # Iconen / states
-  ##############################
-  state-icon-color: "#9aa0a6"
-  state-icon-active-color: "#aeea00"
-  paper-item-icon-color: "#9aa0a6"
-  paper-item-icon-active-color: "#aeea00"
-  state-active-color: "#aeea00"
-
-  ##############################
-  # Klimaat-statuskleuren
-  ##############################
-  state-climate-cool-color: "#aeea00"
-  state-climate-auto-color: "#aeea00"
-  state-climate-heat_cool-color: "#aeea00"
-  state-climate-dry-color: "#c2f23f"
-  state-climate-fan_only-color: "#8fce00"
-  state-climate-heat-color: "#ff9800"
-  state-climate-idle-color: "#6a6a6a"
-  state-climate-off-color: "#6a6a6a"
-
-  ##############################
-  # Toggles / switches
-  ##############################
-  ha-switch-checked-background-color: "#aeea00"
-  ha-switch-checked-background-color-hover: "#bff23a"
-  ha-switch-checked-thumb-background-color: "#2a2a2a"
-  ha-switch-checked-thumb-background-color-hover: "#2a2a2a"
-  ha-switch-checked-border-color: "#aeea00"
-  ha-switch-checked-thumb-border-color: "#2a2a2a"
-
-  switch-checked-color: "#aeea00"
-  switch-checked-track-color: "#aeea00"
-  switch-checked-button-color: "#2a2a2a"
-  switch-unchecked-button-color: "#6b6b6b"
-  switch-unchecked-track-color: "#3a3a3a"
-
-  mdc-switch-selected-track-color: "#aeea00"
-  mdc-switch-selected-hover-track-color: "#aeea00"
-  mdc-switch-selected-focus-track-color: "#aeea00"
-  mdc-switch-selected-pressed-track-color: "#aeea00"
-  mdc-switch-selected-handle-color: "#2a2a2a"
-  mdc-switch-selected-hover-handle-color: "#2a2a2a"
-  mdc-switch-selected-focus-handle-color: "#2a2a2a"
-  mdc-switch-selected-pressed-handle-color: "#2a2a2a"
-  mdc-switch-selected-icon-color: "#2a2a2a"
-
-  paper-toggle-button-checked-bar-color: "#aeea00"
-  paper-toggle-button-checked-button-color: "#2a2a2a"
-
-  ##############################
-  # Sliders
-  ##############################
-  paper-slider-active-color: "#aeea00"
-  paper-slider-knob-color: "#aeea00"
-  paper-slider-pin-color: "#aeea00"
-  paper-slider-secondary-color: "#6366f1"
-
-  ##############################
-  # Binary sensors
-  ##############################
-  state-binary_sensor-active-color: "#aeea00"
-
-  ##############################
-  # Overige accenten
-  ##############################
-  label-badge-background-color: "#1e1e1e"
-  label-badge-border-color: "#6366f1"
-  table-row-background-color: "#1e1e1e"
-  table-row-alternative-background-color: "#181818"
-  mdc-theme-primary: "#aeea00"
-  mdc-theme-secondary: "#6366f1"
 
   ##############################
   # Compactere regelhoogte
@@ -286,7 +31,7 @@ Compact Dark Lime Gradient:
   # LET OP: deze waarde MOET exact gelijk zijn aan de themanaam
   # bovenaan, anders wordt de card-mod-styling niet toegepast.
   ##############################
-  card-mod-theme: Compact Dark Lime Gradient
+  card-mod-theme: Compact Lime Gradient
 
   # --- RIJHOOGTE ---
   card-mod-row-yaml: |
@@ -318,312 +63,592 @@ Compact Dark Lime Gradient:
       padding: 6px 12px 2px !important;
       min-height: unset !important;
     }
-    /* Alle invoervelden donker + leesbaar */
+    /* Alle invoervelden leesbaar; de kleuren komen per modus uit de
+       compact-input-*-variabelen onder 'modes' */
     ha-textfield,
     ha-selector,
     ha-selector-number,
     ha-selector-text,
     ha-selector-select {
-      --mdc-text-field-fill-color: #262626 !important;
-      --mdc-text-field-ink-color: #e8e8e8 !important;
-      --mdc-text-field-label-ink-color: #9aa0a6 !important;
-      --mdc-text-field-idle-line-color: rgba(255,255,255,0.20) !important;
-      --mdc-text-field-hover-line-color: rgba(255,255,255,0.40) !important;
-      --mdc-select-fill-color: #262626 !important;
-      --mdc-select-ink-color: #e8e8e8 !important;
-      --mdc-select-label-ink-color: #9aa0a6 !important;
-      --text-field-fill-color: #262626 !important;
-      --input-fill-color: #262626 !important;
-      --input-ink-color: #e8e8e8 !important;
+      --mdc-text-field-fill-color: var(--compact-input-fill-color) !important;
+      --mdc-text-field-ink-color: var(--compact-input-ink-color) !important;
+      --mdc-text-field-label-ink-color: var(--compact-input-label-color) !important;
+      --mdc-text-field-idle-line-color: var(--compact-input-idle-line-color) !important;
+      --mdc-text-field-hover-line-color: var(--compact-input-hover-line-color) !important;
+      --mdc-select-fill-color: var(--compact-input-fill-color) !important;
+      --mdc-select-ink-color: var(--compact-input-ink-color) !important;
+      --mdc-select-label-ink-color: var(--compact-input-label-color) !important;
+      --text-field-fill-color: var(--compact-input-fill-color) !important;
+      --input-fill-color: var(--compact-input-fill-color) !important;
+      --input-ink-color: var(--compact-input-ink-color) !important;
     }
 
-Compact Dark Violet Gradient:
-  ##############################
-  # Basiskleuren
-  #
-  # Hoofdkleur is nu violetblauw (#7c4dff).
-  # Let op: violet is op een donkere achtergrond visueel "zwaarder" dan
-  # lime. Voor tekst/iconen wordt daarom de lichtere variant #9a74ff
-  # gebruikt (contrast ~5.7:1 i.p.v. ~3.9:1).
-  ##############################
-  primary-color: "#7c4dff"
-  accent-color: "#7c4dff"
-  light-primary-color: "#9a74ff"
-  dark-primary-color: "#4a2896"
+  modes:
+    ##########################################################################
+    # DONKER
+    ##########################################################################
+    dark:
+      ##############################
+      # Basiskleuren
+      ##############################
+      primary-color: "#aeea00"
+      accent-color: "#aeea00"
+      light-primary-color: "#c6ff4a"
+      dark-primary-color: "#6366f1"
 
-  ##############################
-  # Kleuren-palette (HA 2025.8+)
-  ##############################
-  ha-color-primary-05: "#0a0616"
-  ha-color-primary-10: "#150b2b"
-  ha-color-primary-20: "#241247"
-  ha-color-primary-30: "#351c69"
-  ha-color-primary-40: "#4a2896"
-  ha-color-primary-50: "#6238c9"
-  ha-color-primary-60: "#7c4dff"   # basis violet-highlight
-  ha-color-primary-70: "#9a74ff"
-  ha-color-primary-80: "#b79bff"
-  ha-color-primary-90: "#d5c4ff"
-  ha-color-primary-95: "#ebe2ff"
+      ##############################
+      # Kleuren-palette (HA 2025.8+)
+      ##############################
+      ha-color-primary-05: "#0d1a00"
+      ha-color-primary-10: "#1a3300"
+      ha-color-primary-20: "#2e5a00"
+      ha-color-primary-30: "#437f00"
+      ha-color-primary-40: "#6aa800"
+      ha-color-primary-50: "#8fce00"
+      ha-color-primary-60: "#aeea00"   # basis lime-highlight
+      ha-color-primary-70: "#c2f23f"
+      ha-color-primary-80: "#d7f77a"
+      ha-color-primary-90: "#e9fbb8"
+      ha-color-primary-95: "#f4fdde"
 
-  # Secundair accent is van indigo naar cyaan verschoven: indigo lag te
-  # dicht tegen het nieuwe violet aan en werd in grafieken onleesbaar.
-  graph-color-1: "#7c4dff"   # violet
-  graph-color-2: "#00c8d4"   # cyaan
-  graph-color-3: "#4a2896"   # violet donker
-  graph-color-4: "#7ee8f2"   # cyaan licht
-  graph-color-5: "#b79bff"   # violet licht
-  graph-color-6: "#036e78"   # cyaan donker
+      graph-color-1: "#aeea00"   # lime
+      graph-color-2: "#6366f1"   # indigo
+      graph-color-3: "#437f00"   # lime donker
+      graph-color-4: "#a5abff"   # indigo licht
+      graph-color-5: "#d7f77a"   # lime licht
+      graph-color-6: "#2e2b96"   # indigo donker
 
-  ##############################
-  # Achtergronden
-  #
-  # primary-background-color MOET een vlakke kleur blijven: HA zet die
-  # op veel plekken als 'background-color', waar een gradient ongeldig is.
-  # De gradient gaat daarom op 'lovelace-background' (= alleen het
-  # dashboard-canvas, niet de sidebar/dialogen).
-  #
-  # De groene zweem in de gradient is vervangen door een violette.
-  ##############################
-  primary-background-color: "#0d0d0d"
-  secondary-background-color: "#141414"
-  divider-color: "rgba(255,255,255,0.07)"
+      ##############################
+      # Achtergronden
+      #
+      # primary-background-color MOET een vlakke kleur blijven: HA zet die
+      # op veel plekken als 'background-color', waar een gradient ongeldig is.
+      # De gradient gaat daarom op 'lovelace-background' (= alleen het
+      # dashboard-canvas, niet de sidebar/dialogen).
+      ##############################
+      primary-background-color: "#0d0d0d"
+      secondary-background-color: "#141414"
+      divider-color: "rgba(255,255,255,0.07)"
 
-  lovelace-background: "radial-gradient(120% 80% at 50% 0%, #100d1a 0%, #0d0d0d 55%, #0b0b0b 100%)"
+      lovelace-background: "radial-gradient(120% 80% at 50% 0%, #12160c 0%, #0d0d0d 55%, #0b0b0b 100%)"
 
-  ##############################
-  # Tekst
-  #
-  # text-primary-color = tekst OP de primaire kleur. Op lime moest dat
-  # donker zijn, op violet juist licht.
-  ##############################
-  primary-text-color: "#e8e8e8"
-  secondary-text-color: "#9aa0a6"
-  disabled-text-color: "#5f6368"
-  text-primary-color: "#ffffff"
+      ##############################
+      # Tekst
+      ##############################
+      primary-text-color: "#e8e8e8"
+      secondary-text-color: "#9aa0a6"
+      disabled-text-color: "#5f6368"
+      text-primary-color: "#0d1a00"
 
-  ##############################
-  # Kaarten - PLAT & MAT, met gradient-rand (glow linksboven)
-  #
-  # Truc: twee achtergrondlagen in EEN 'background'-shorthand.
-  #   laag 1 (padding-box) = het kaartvlak -> altijd vlak #131313
-  #   laag 2 (border-box)  = ligt ONDER de rand -> de gradient
-  # Rand zelf transparant -> laag 2 is alleen door de randring zichtbaar.
-  #
-  # PLAT/MAT:
-  #   - border-radius 3px
-  #   - box-shadow: none -> kaart ligt in het vlak, werpt geen schaduw
-  #   - neutrale randlijn gedempt naar 4% wit -> minder glans
-  #
-  # Afstellen:
-  #   scherper       -> ha-card-border-radius naar "2px" of "0px"
-  #   sterkere glow  -> alpha eerste stop (nu 1.00) omhoog kan niet meer;
-  #                     gebruik dan #9a74ff als glow-kleur
-  #   bredere glow   -> 70px 4px naar bv. 140px 6px
-  #
-  # De glow-alpha's staan iets hoger dan bij lime: violet heeft minder
-  # eigen helderheid en verdwijnt anders in de achtergrond.
-  ##############################
-  card-background-color: "#131313"
-  ha-card-background: >-
-    linear-gradient(#131313, #131313) padding-box,
-    radial-gradient(70px 4px at 0% 0%,
-      rgba(140,100,255,1.00) 0%,
-      rgba(124,77,255,0.55) 35%,
-      rgba(124,77,255,0.18) 70%,
-      rgba(255,255,255,0.04) 100%) border-box
-  ha-card-border-radius: "3px"
-  ha-card-border-width: "1px"
-  ha-card-border-color: "transparent"
-  ha-card-box-shadow: "none"
-  ha-card-header-font-size: "18px"
+      ##############################
+      # Kaarten - PLAT & MAT, met gradient-rand (glow linksboven)
+      #
+      # Truc: twee achtergrondlagen in EEN 'background'-shorthand.
+      #   laag 1 (padding-box) = het kaartvlak -> altijd vlak #131313
+      #   laag 2 (border-box)  = ligt ONDER de rand -> de gradient
+      # Rand zelf transparant -> laag 2 is alleen door de randring zichtbaar.
+      #
+      # PLAT/MAT:
+      #   - border-radius 3px (was 6px)
+      #   - box-shadow: none -> kaart ligt in het vlak, werpt geen schaduw
+      #   - neutrale randlijn gedempt naar 4% wit (was 8%) -> minder glans
+      #   - kaartvlak #131313 vlak; iets dichter bij de achtergrond zetten
+      #     (bv. #121212) maakt het nog matter/vlakker
+      #
+      # Afstellen:
+      #   scherper       -> ha-card-border-radius naar "2px" of "0px"
+      #   sterkere glow  -> alpha eerste stop (nu 0.90) omhoog
+      #   bredere glow   -> 140px 5px naar bv. 200px 8px
+      ##############################
+      card-background-color: "#131313"
+      ha-card-background: >-
+        linear-gradient(#131313, #131313) padding-box,
+        radial-gradient(70px 4px at 0% 0%,
+          rgba(174,234,0,0.90) 0%,
+          rgba(174,234,0,0.45) 35%,
+          rgba(174,234,0,0.14) 70%,
+          rgba(255,255,255,0.04) 100%) border-box
+      ha-card-border-radius: "3px"
+      ha-card-border-width: "1px"
+      ha-card-border-color: "transparent"
+      ha-card-box-shadow: "none"
+      ha-card-header-font-size: "18px"
 
-  ##############################
-  # Invoervelden / dropdowns / selects
-  ##############################
-  input-fill-color: "#262626"
-  input-disabled-fill-color: "#1e1e1e"
-  input-ink-color: "#e8e8e8"
-  input-label-ink-color: "#9aa0a6"
-  input-disabled-ink-color: "#c0c0c0"
-  input-placeholder-color: "#9aa0a6"
-  input-dropdown-icon-color: "#9a74ff"
-  input-idle-line-color: "rgba(255,255,255,0.20)"
-  input-hover-line-color: "rgba(255,255,255,0.40)"
-  input-disabled-line-color: "rgba(255,255,255,0.10)"
-  input-outlined-idle-border-color: "rgba(255,255,255,0.20)"
-  input-outlined-hover-border-color: "rgba(255,255,255,0.40)"
-  input-outlined-disabled-border-color: "rgba(255,255,255,0.10)"
+      ##############################
+      # Invoervelden / dropdowns / selects
+      ##############################
+      input-fill-color: "#262626"
+      input-disabled-fill-color: "#1e1e1e"
+      input-ink-color: "#e8e8e8"
+      input-label-ink-color: "#9aa0a6"
+      input-disabled-ink-color: "#c0c0c0"
+      input-placeholder-color: "#9aa0a6"
+      input-dropdown-icon-color: "#aeea00"
+      input-idle-line-color: "rgba(255,255,255,0.20)"
+      input-hover-line-color: "rgba(255,255,255,0.40)"
+      input-disabled-line-color: "rgba(255,255,255,0.10)"
+      input-outlined-idle-border-color: "rgba(255,255,255,0.20)"
+      input-outlined-hover-border-color: "rgba(255,255,255,0.40)"
+      input-outlined-disabled-border-color: "rgba(255,255,255,0.10)"
 
-  mdc-text-field-fill-color: "#262626"
-  mdc-text-field-disabled-fill-color: "#1e1e1e"
-  mdc-text-field-ink-color: "#e8e8e8"
-  mdc-text-field-label-ink-color: "#9aa0a6"
-  mdc-text-field-idle-line-color: "rgba(255,255,255,0.20)"
-  mdc-text-field-hover-line-color: "rgba(255,255,255,0.40)"
-  mdc-select-fill-color: "#262626"
-  mdc-select-disabled-fill-color: "#1e1e1e"
-  mdc-select-ink-color: "#e8e8e8"
-  mdc-select-label-ink-color: "#9aa0a6"
-  mdc-select-idle-line-color: "rgba(255,255,255,0.20)"
-  mdc-select-hover-line-color: "rgba(255,255,255,0.40)"
-  mdc-select-dropdown-icon-color: "#9a74ff"
+      mdc-text-field-fill-color: "#262626"
+      mdc-text-field-disabled-fill-color: "#1e1e1e"
+      mdc-text-field-ink-color: "#e8e8e8"
+      mdc-text-field-label-ink-color: "#9aa0a6"
+      mdc-text-field-idle-line-color: "rgba(255,255,255,0.20)"
+      mdc-text-field-hover-line-color: "rgba(255,255,255,0.40)"
+      mdc-select-fill-color: "#262626"
+      mdc-select-disabled-fill-color: "#1e1e1e"
+      mdc-select-ink-color: "#e8e8e8"
+      mdc-select-label-ink-color: "#9aa0a6"
+      mdc-select-idle-line-color: "rgba(255,255,255,0.20)"
+      mdc-select-hover-line-color: "rgba(255,255,255,0.40)"
+      mdc-select-dropdown-icon-color: "#aeea00"
 
-  mdc-theme-surface: "#262626"
-  mdc-theme-on-surface: "#e8e8e8"
-  mdc-dialog-scrim-color: "rgba(0,0,0,0.65)"
-  menu-surface-background-color: "#262626"
+      mdc-theme-surface: "#262626"
+      mdc-theme-on-surface: "#e8e8e8"
+      mdc-dialog-scrim-color: "rgba(0,0,0,0.65)"
+      menu-surface-background-color: "#262626"
 
-  paper-input-container-color: "#9aa0a6"
-  paper-input-container-focus-color: "#7c4dff"
-  paper-input-container-input-color: "#e8e8e8"
+      paper-input-container-color: "#9aa0a6"
+      paper-input-container-focus-color: "#aeea00"
+      paper-input-container-input-color: "#e8e8e8"
 
-  ##############################
-  # Kaart-/YAML-editor, ha-form & dialogen
-  ##############################
-  ha-color-form-background: "#262626"
-  ha-color-form-background-hover: "#2e2e2e"
-  ha-color-form-background-disabled: "rgba(38,38,40,0.5)"
-  ha-color-fill-neutral-quiet-hover: "#2e2e2e"
+      ##############################
+      # Kaart-/YAML-editor, ha-form & dialogen
+      ##############################
+      ha-color-form-background: "#262626"
+      ha-color-form-background-hover: "#2e2e2e"
+      ha-color-form-background-disabled: "rgba(38,38,40,0.5)"
+      ha-color-fill-neutral-quiet-hover: "#2e2e2e"
 
-  ha-color-fill-warning-quiet-resting: "rgba(255,152,0,0.12)"
-  ha-color-fill-warning-quiet-hover: "rgba(255,152,0,0.18)"
-  ha-color-fill-warning-normal-resting: "rgba(255,152,0,0.15)"
-  ha-color-fill-warning-normal-hover: "rgba(255,152,0,0.22)"
-  ha-color-fill-warning-normal-active: "rgba(255,152,0,0.28)"
-  ha-color-on-warning-quiet: "#ffb74d"
-  ha-color-on-warning-normal: "#ffb74d"
-  ha-color-fill-danger-quiet-resting: "rgba(234,114,135,0.12)"
-  ha-color-fill-danger-quiet-hover: "rgba(234,114,135,0.18)"
-  ha-color-fill-danger-normal-resting: "rgba(234,114,135,0.15)"
-  ha-color-fill-danger-normal-hover: "rgba(234,114,135,0.22)"
-  ha-color-fill-danger-normal-active: "rgba(234,114,135,0.28)"
-  ha-color-on-danger-quiet: "#ea7287"
-  ha-color-on-danger-normal: "#ea7287"
-  input-background-color: "#262626"
-  input-disabled-label-ink-color: "#8a8a8a"
-  clear-background-color: "#262626"
-  data-table-background-color: "#1e1e1e"
-  paper-dialog-background-color: "#1e1e1e"
-  ha-dialog-border-radius: "4px"
-  ha-tooltip-background-color: "#262626"
-  ha-tooltip-color: "#e8e8e8"
+      ha-color-fill-warning-quiet-resting: "rgba(255,152,0,0.12)"
+      ha-color-fill-warning-quiet-hover: "rgba(255,152,0,0.18)"
+      ha-color-fill-warning-normal-resting: "rgba(255,152,0,0.15)"
+      ha-color-fill-warning-normal-hover: "rgba(255,152,0,0.22)"
+      ha-color-fill-warning-normal-active: "rgba(255,152,0,0.28)"
+      ha-color-on-warning-quiet: "#ffb74d"
+      ha-color-on-warning-normal: "#ffb74d"
+      ha-color-fill-danger-quiet-resting: "rgba(234,114,135,0.12)"
+      ha-color-fill-danger-quiet-hover: "rgba(234,114,135,0.18)"
+      ha-color-fill-danger-normal-resting: "rgba(234,114,135,0.15)"
+      ha-color-fill-danger-normal-hover: "rgba(234,114,135,0.22)"
+      ha-color-fill-danger-normal-active: "rgba(234,114,135,0.28)"
+      ha-color-on-danger-quiet: "#ea7287"
+      ha-color-on-danger-normal: "#ea7287"
+      input-background-color: "#262626"
+      input-disabled-label-ink-color: "#8a8a8a"
+      clear-background-color: "#262626"
+      data-table-background-color: "#1e1e1e"
+      paper-dialog-background-color: "#1e1e1e"
+      ha-dialog-border-radius: "4px"
+      ha-tooltip-background-color: "#262626"
+      ha-tooltip-color: "#e8e8e8"
 
-  ##############################
-  # Syntax-highlighting
-  #
-  # Het oude 'keyword' blauw (#8ca9ff) botste met violet, dat is nu
-  # teal geworden zodat alle tokens onderling te onderscheiden blijven.
-  ##############################
-  code-editor-background-color: "#161616"
-  markdown-code-background-color: "#161616"
-  codemirror-meta: "#e8e8e8"
-  codemirror-property: "#a37bff"
-  codemirror-atom: "#a37bff"
-  codemirror-string: "#77c4e5"
-  codemirror-keyword: "#66d9c8"
-  codemirror-number: "#ff8a3d"
-  codemirror-comment: "#9aa0a6"
-  codemirror-operator: "#e8e8e8"
-  codemirror-variable: "#e8e8e8"
-  codemirror-variable-2: "#a37bff"
-  codemirror-variable-3: "#77c4e5"
-  codemirror-def: "#77c4e5"
-  codemirror-tag: "#66d9c8"
-  codemirror-attribute: "#a37bff"
+      code-editor-background-color: "#161616"
+      markdown-code-background-color: "#161616"
+      codemirror-meta: "#e8e8e8"
+      codemirror-property: "#aeea00"
+      codemirror-atom: "#aeea00"
+      codemirror-string: "#77c4e5"
+      codemirror-keyword: "#8ca9ff"
+      codemirror-number: "#ff8a3d"
+      codemirror-comment: "#9aa0a6"
+      codemirror-operator: "#e8e8e8"
+      codemirror-variable: "#e8e8e8"
+      codemirror-variable-2: "#aeea00"
+      codemirror-variable-3: "#77c4e5"
+      codemirror-def: "#77c4e5"
+      codemirror-tag: "#8ca9ff"
+      codemirror-attribute: "#aeea00"
 
-  ##############################
-  # App header
-  ##############################
-  app-header-background-color: "#161616"
-  app-header-text-color: "#e8e8e8"
-  app-header-selection-bar-color: "#7c4dff"
+      ##############################
+      # App header
+      ##############################
+      app-header-background-color: "#161616"
+      app-header-text-color: "#e8e8e8"
+      app-header-selection-bar-color: "#aeea00"
 
-  ##############################
-  # Sidebar
-  ##############################
-  sidebar-background-color: "#161616"
-  sidebar-icon-color: "#9aa0a6"
-  sidebar-text-color: "#e8e8e8"
-  sidebar-selected-background-color: "#1e1e1e"
-  sidebar-selected-icon-color: "#9a74ff"
-  sidebar-selected-text-color: "#9a74ff"
+      ##############################
+      # Sidebar
+      ##############################
+      sidebar-background-color: "#161616"
+      sidebar-icon-color: "#9aa0a6"
+      sidebar-text-color: "#e8e8e8"
+      sidebar-selected-background-color: "#1e1e1e"
+      sidebar-selected-icon-color: "#aeea00"
+      sidebar-selected-text-color: "#aeea00"
 
-  ##############################
-  # Iconen / states
-  ##############################
-  state-icon-color: "#9aa0a6"
-  state-icon-active-color: "#9a74ff"
-  paper-item-icon-color: "#9aa0a6"
-  paper-item-icon-active-color: "#9a74ff"
-  state-active-color: "#9a74ff"
+      ##############################
+      # Iconen / states
+      ##############################
+      state-icon-color: "#9aa0a6"
+      state-icon-active-color: "#aeea00"
+      paper-item-icon-color: "#9aa0a6"
+      paper-item-icon-active-color: "#aeea00"
+      state-active-color: "#aeea00"
 
-  ##############################
-  # Klimaat-statuskleuren
-  ##############################
-  state-climate-cool-color: "#7c4dff"
-  state-climate-auto-color: "#7c4dff"
-  state-climate-heat_cool-color: "#7c4dff"
-  state-climate-dry-color: "#9a74ff"
-  state-climate-fan_only-color: "#6238c9"
-  state-climate-heat-color: "#ff9800"
-  state-climate-idle-color: "#6a6a6a"
-  state-climate-off-color: "#6a6a6a"
+      ##############################
+      # Klimaat-statuskleuren
+      ##############################
+      state-climate-cool-color: "#aeea00"
+      state-climate-auto-color: "#aeea00"
+      state-climate-heat_cool-color: "#aeea00"
+      state-climate-dry-color: "#c2f23f"
+      state-climate-fan_only-color: "#8fce00"
+      state-climate-heat-color: "#ff9800"
+      state-climate-idle-color: "#6a6a6a"
+      state-climate-off-color: "#6a6a6a"
 
-  ##############################
-  # Toggles / switches
-  #
-  # Thumb was donker (#2a2a2a) omdat lime licht is. Violet is donkerder,
-  # dus een lichte thumb geeft nu meer contrast in de 'aan'-stand.
-  ##############################
-  ha-switch-checked-background-color: "#7c4dff"
-  ha-switch-checked-background-color-hover: "#9160ff"
-  ha-switch-checked-thumb-background-color: "#f0eaff"
-  ha-switch-checked-thumb-background-color-hover: "#f0eaff"
-  ha-switch-checked-border-color: "#7c4dff"
-  ha-switch-checked-thumb-border-color: "#f0eaff"
+      ##############################
+      # Toggles / switches
+      ##############################
+      ha-switch-checked-background-color: "#aeea00"
+      ha-switch-checked-background-color-hover: "#bff23a"
+      ha-switch-checked-thumb-background-color: "#2a2a2a"
+      ha-switch-checked-thumb-background-color-hover: "#2a2a2a"
+      ha-switch-checked-border-color: "#aeea00"
+      ha-switch-checked-thumb-border-color: "#2a2a2a"
 
-  switch-checked-color: "#7c4dff"
-  switch-checked-track-color: "#7c4dff"
-  switch-checked-button-color: "#f0eaff"
-  switch-unchecked-button-color: "#6b6b6b"
-  switch-unchecked-track-color: "#3a3a3a"
+      switch-checked-color: "#aeea00"
+      switch-checked-track-color: "#aeea00"
+      switch-checked-button-color: "#2a2a2a"
+      switch-unchecked-button-color: "#6b6b6b"
+      switch-unchecked-track-color: "#3a3a3a"
 
-  mdc-switch-selected-track-color: "#7c4dff"
-  mdc-switch-selected-hover-track-color: "#7c4dff"
-  mdc-switch-selected-focus-track-color: "#7c4dff"
-  mdc-switch-selected-pressed-track-color: "#7c4dff"
-  mdc-switch-selected-handle-color: "#f0eaff"
-  mdc-switch-selected-hover-handle-color: "#f0eaff"
-  mdc-switch-selected-focus-handle-color: "#f0eaff"
-  mdc-switch-selected-pressed-handle-color: "#f0eaff"
-  mdc-switch-selected-icon-color: "#4a2896"
+      mdc-switch-selected-track-color: "#aeea00"
+      mdc-switch-selected-hover-track-color: "#aeea00"
+      mdc-switch-selected-focus-track-color: "#aeea00"
+      mdc-switch-selected-pressed-track-color: "#aeea00"
+      mdc-switch-selected-handle-color: "#2a2a2a"
+      mdc-switch-selected-hover-handle-color: "#2a2a2a"
+      mdc-switch-selected-focus-handle-color: "#2a2a2a"
+      mdc-switch-selected-pressed-handle-color: "#2a2a2a"
+      mdc-switch-selected-icon-color: "#2a2a2a"
 
-  paper-toggle-button-checked-bar-color: "#7c4dff"
-  paper-toggle-button-checked-button-color: "#f0eaff"
+      paper-toggle-button-checked-bar-color: "#aeea00"
+      paper-toggle-button-checked-button-color: "#2a2a2a"
 
-  ##############################
-  # Sliders
-  ##############################
-  paper-slider-active-color: "#7c4dff"
-  paper-slider-knob-color: "#9a74ff"
-  paper-slider-pin-color: "#7c4dff"
-  paper-slider-secondary-color: "#00c8d4"
+      ##############################
+      # Sliders
+      ##############################
+      paper-slider-active-color: "#aeea00"
+      paper-slider-knob-color: "#aeea00"
+      paper-slider-pin-color: "#aeea00"
+      paper-slider-secondary-color: "#6366f1"
 
-  ##############################
-  # Binary sensors
-  ##############################
-  state-binary_sensor-active-color: "#9a74ff"
+      ##############################
+      # Binary sensors
+      ##############################
+      state-binary_sensor-active-color: "#aeea00"
 
+      ##############################
+      # Overige accenten
+      ##############################
+      label-badge-background-color: "#1e1e1e"
+      label-badge-border-color: "#6366f1"
+      table-row-background-color: "#1e1e1e"
+      table-row-alternative-background-color: "#181818"
+      mdc-theme-primary: "#aeea00"
+      mdc-theme-secondary: "#6366f1"
+
+      ##############################
+      # Kleuren voor de card-mod-invoervelden (zie card-mod-card)
+      ##############################
+      compact-input-fill-color: "#262626"
+      compact-input-ink-color: "#e8e8e8"
+      compact-input-label-color: "#9aa0a6"
+      compact-input-idle-line-color: "rgba(255,255,255,0.20)"
+      compact-input-hover-line-color: "rgba(255,255,255,0.40)"
+
+    ##########################################################################
+    # LICHT
+    ##########################################################################
+    light:
+      ##############################
+      # Basiskleuren (licht)
+      #
+      # Lime #aeea00 is op wit onleesbaar (1.4:1). In licht is de
+      # primaire kleur daarom het donkere lime #437f00 (4.9:1 op wit);
+      # tekst in de zijbalk gebruikt #3b7000 (5.2:1 op #eceef1).
+      ##############################
+      primary-color: "#437f00"
+      accent-color: "#437f00"
+      light-primary-color: "#aeea00"
+      dark-primary-color: "#2e5a00"
+
+      ##############################
+      # Kleuren-palette (HA 2025.8+) - gelijk aan donker
+      ##############################
+      ha-color-primary-05: "#0d1a00"
+      ha-color-primary-10: "#1a3300"
+      ha-color-primary-20: "#2e5a00"
+      ha-color-primary-30: "#437f00"
+      ha-color-primary-40: "#6aa800"
+      ha-color-primary-50: "#8fce00"
+      ha-color-primary-60: "#aeea00"   # basis lime-highlight
+      ha-color-primary-70: "#c2f23f"
+      ha-color-primary-80: "#d7f77a"
+      ha-color-primary-90: "#e9fbb8"
+      ha-color-primary-95: "#f4fdde"
+
+      graph-color-1: "#5a9200"   # lime
+      graph-color-2: "#6366f1"   # indigo
+      graph-color-3: "#2e5a00"   # lime donker
+      graph-color-4: "#8b90f5"   # indigo licht
+      graph-color-5: "#8fce00"   # lime licht
+      graph-color-6: "#2e2b96"   # indigo donker
+
+      ##############################
+      # Achtergronden
+      #
+      # Lichtgrijs canvas met witte kaarten. De gradient op het
+      # dashboard-canvas heeft een lichte lime-zweem.
+      ##############################
+      primary-background-color: "#f4f5f7"
+      secondary-background-color: "#eceef1"
+      divider-color: "rgba(0,0,0,0.08)"
+
+      lovelace-background: "radial-gradient(120% 80% at 50% 0%, #f1f6e4 0%, #f4f5f7 55%, #f1f2f4 100%)"
+
+      ##############################
+      # Tekst
+      #
+      # text-primary-color = tekst OP de primaire kleur. De primaire kleur
+      # is in licht donker genoeg voor witte tekst.
+      ##############################
+      primary-text-color: "#1c1d1f"
+      secondary-text-color: "#5f6368"
+      disabled-text-color: "#a0a4a8"
+      text-primary-color: "#ffffff"
+
+      ##############################
+      # Kaarten - PLAT & MAT, met gradient-rand (glow linksboven)
+      #
+      # Zelfde truc als in donker: laag 1 (padding-box) is het witte
+      # kaartvlak, laag 2 (border-box) de gradient onder de transparante
+      # rand. De neutrale randlijn is 8% zwart: 4% wit valt op wit weg.
+      ##############################
+      card-background-color: "#ffffff"
+      ha-card-background: >-
+        linear-gradient(#ffffff, #ffffff) padding-box,
+        radial-gradient(70px 4px at 0% 0%,
+          rgba(106,168,0,1.00) 0%,
+          rgba(106,168,0,0.55) 35%,
+          rgba(106,168,0,0.20) 70%,
+          rgba(0,0,0,0.08) 100%) border-box
+      ha-card-border-radius: "3px"
+      ha-card-border-width: "1px"
+      ha-card-border-color: "transparent"
+      ha-card-box-shadow: "none"
+      ha-card-header-font-size: "18px"
+
+      ##############################
+      # Invoervelden / dropdowns / selects
+      ##############################
+      input-fill-color: "#eef0f2"
+      input-disabled-fill-color: "#f5f6f7"
+      input-ink-color: "#1c1d1f"
+      input-label-ink-color: "#5f6368"
+      input-disabled-ink-color: "#8a8e93"
+      input-placeholder-color: "#6b7076"
+      input-dropdown-icon-color: "#3b7000"
+      input-idle-line-color: "rgba(0,0,0,0.22)"
+      input-hover-line-color: "rgba(0,0,0,0.42)"
+      input-disabled-line-color: "rgba(0,0,0,0.10)"
+      input-outlined-idle-border-color: "rgba(0,0,0,0.22)"
+      input-outlined-hover-border-color: "rgba(0,0,0,0.42)"
+      input-outlined-disabled-border-color: "rgba(0,0,0,0.10)"
+
+      mdc-text-field-fill-color: "#eef0f2"
+      mdc-text-field-disabled-fill-color: "#f5f6f7"
+      mdc-text-field-ink-color: "#1c1d1f"
+      mdc-text-field-label-ink-color: "#5f6368"
+      mdc-text-field-idle-line-color: "rgba(0,0,0,0.22)"
+      mdc-text-field-hover-line-color: "rgba(0,0,0,0.42)"
+      mdc-select-fill-color: "#eef0f2"
+      mdc-select-disabled-fill-color: "#f5f6f7"
+      mdc-select-ink-color: "#1c1d1f"
+      mdc-select-label-ink-color: "#5f6368"
+      mdc-select-idle-line-color: "rgba(0,0,0,0.22)"
+      mdc-select-hover-line-color: "rgba(0,0,0,0.42)"
+      mdc-select-dropdown-icon-color: "#3b7000"
+
+      mdc-theme-surface: "#ffffff"
+      mdc-theme-on-surface: "#1c1d1f"
+      mdc-dialog-scrim-color: "rgba(0,0,0,0.32)"
+      menu-surface-background-color: "#ffffff"
+
+      paper-input-container-color: "#5f6368"
+      paper-input-container-focus-color: "#437f00"
+      paper-input-container-input-color: "#1c1d1f"
+
+      ##############################
+      # Kaart-/YAML-editor, ha-form & dialogen
+      #
+      # Warning/danger-tekst is donkerder dan in donker, zodat die op
+      # de lichte vulling leesbaar blijft (>= 4.5:1).
+      ##############################
+      ha-color-form-background: "#eef0f2"
+      ha-color-form-background-hover: "#e6e8eb"
+      ha-color-form-background-disabled: "rgba(238,240,242,0.5)"
+      ha-color-fill-neutral-quiet-hover: "#e6e8eb"
+
+      ha-color-fill-warning-quiet-resting: "rgba(255,152,0,0.10)"
+      ha-color-fill-warning-quiet-hover: "rgba(255,152,0,0.16)"
+      ha-color-fill-warning-normal-resting: "rgba(255,152,0,0.14)"
+      ha-color-fill-warning-normal-hover: "rgba(255,152,0,0.20)"
+      ha-color-fill-warning-normal-active: "rgba(255,152,0,0.26)"
+      ha-color-on-warning-quiet: "#a14a00"
+      ha-color-on-warning-normal: "#a14a00"
+      ha-color-fill-danger-quiet-resting: "rgba(198,40,40,0.08)"
+      ha-color-fill-danger-quiet-hover: "rgba(198,40,40,0.14)"
+      ha-color-fill-danger-normal-resting: "rgba(198,40,40,0.12)"
+      ha-color-fill-danger-normal-hover: "rgba(198,40,40,0.18)"
+      ha-color-fill-danger-normal-active: "rgba(198,40,40,0.24)"
+      ha-color-on-danger-quiet: "#c62828"
+      ha-color-on-danger-normal: "#c62828"
+      input-background-color: "#eef0f2"
+      input-disabled-label-ink-color: "#8a8e93"
+      clear-background-color: "#ffffff"
+      data-table-background-color: "#ffffff"
+      paper-dialog-background-color: "#ffffff"
+      ha-dialog-border-radius: "4px"
+      ha-tooltip-background-color: "#2a2b2e"
+      ha-tooltip-color: "#f2f2f2"
+
+      ##############################
+      # Syntax-highlighting
+      #
+      # Donkere varianten van de tokenkleuren; allemaal >= 4.5:1 op de
+      # lichte editor-achtergrond.
+      ##############################
+      code-editor-background-color: "#f6f7f8"
+      markdown-code-background-color: "#f6f7f8"
+      codemirror-meta: "#1c1d1f"
+      codemirror-property: "#3b7000"
+      codemirror-atom: "#3b7000"
+      codemirror-string: "#0277bd"
+      codemirror-keyword: "#4f46e5"
+      codemirror-number: "#b45309"
+      codemirror-comment: "#6b7076"
+      codemirror-operator: "#1c1d1f"
+      codemirror-variable: "#1c1d1f"
+      codemirror-variable-2: "#3b7000"
+      codemirror-variable-3: "#00796b"
+      codemirror-def: "#00796b"
+      codemirror-tag: "#4f46e5"
+      codemirror-attribute: "#3b7000"
+
+      ##############################
+      # App header
+      ##############################
+      app-header-background-color: "#ffffff"
+      app-header-text-color: "#1c1d1f"
+      app-header-selection-bar-color: "#437f00"
+
+      ##############################
+      # Sidebar
+      ##############################
+      sidebar-background-color: "#fafbfc"
+      sidebar-icon-color: "#5f6368"
+      sidebar-text-color: "#1c1d1f"
+      sidebar-selected-background-color: "#eceef1"
+      sidebar-selected-icon-color: "#3b7000"
+      sidebar-selected-text-color: "#3b7000"
+
+      ##############################
+      # Iconen / states
+      ##############################
+      state-icon-color: "#5f6368"
+      state-icon-active-color: "#5a9200"
+      paper-item-icon-color: "#5f6368"
+      paper-item-icon-active-color: "#5a9200"
+      state-active-color: "#5a9200"
+
+      ##############################
+      # Klimaat-statuskleuren
+      #
+      # Heat is donkerder oranje dan in donker: #ff9800 is op wit te licht.
+      ##############################
+      state-climate-cool-color: "#437f00"
+      state-climate-auto-color: "#437f00"
+      state-climate-heat_cool-color: "#437f00"
+      state-climate-dry-color: "#5a9200"
+      state-climate-fan_only-color: "#6aa800"
+      state-climate-heat-color: "#e65100"
+      state-climate-idle-color: "#9aa0a6"
+      state-climate-off-color: "#9aa0a6"
+
+      ##############################
+      # Toggles / switches
+      #
+      # Witte thumb op een middel-lime track (#5a9200, 3.8:1 met de thumb).
+      ##############################
+      ha-switch-checked-background-color: "#5a9200"
+      ha-switch-checked-background-color-hover: "#4f8500"
+      ha-switch-checked-thumb-background-color: "#ffffff"
+      ha-switch-checked-thumb-background-color-hover: "#ffffff"
+      ha-switch-checked-border-color: "#5a9200"
+      ha-switch-checked-thumb-border-color: "#ffffff"
+
+      switch-checked-color: "#5a9200"
+      switch-checked-track-color: "#5a9200"
+      switch-checked-button-color: "#ffffff"
+      switch-unchecked-button-color: "#fafafa"
+      switch-unchecked-track-color: "#bdc1c6"
+
+      mdc-switch-selected-track-color: "#5a9200"
+      mdc-switch-selected-hover-track-color: "#5a9200"
+      mdc-switch-selected-focus-track-color: "#5a9200"
+      mdc-switch-selected-pressed-track-color: "#5a9200"
+      mdc-switch-selected-handle-color: "#ffffff"
+      mdc-switch-selected-hover-handle-color: "#ffffff"
+      mdc-switch-selected-focus-handle-color: "#ffffff"
+      mdc-switch-selected-pressed-handle-color: "#ffffff"
+      mdc-switch-selected-icon-color: "#2e5a00"
+
+      paper-toggle-button-checked-bar-color: "#5a9200"
+      paper-toggle-button-checked-button-color: "#ffffff"
+
+      ##############################
+      # Sliders
+      ##############################
+      paper-slider-active-color: "#5a9200"
+      paper-slider-knob-color: "#437f00"
+      paper-slider-pin-color: "#437f00"
+      paper-slider-secondary-color: "#4f46e5"
+
+      ##############################
+      # Binary sensors
+      ##############################
+      state-binary_sensor-active-color: "#5a9200"
+
+      ##############################
+      # Overige accenten
+      ##############################
+      label-badge-background-color: "#ffffff"
+      label-badge-border-color: "#4f46e5"
+      table-row-background-color: "#ffffff"
+      table-row-alternative-background-color: "#f7f8f9"
+      mdc-theme-primary: "#437f00"
+      mdc-theme-secondary: "#4f46e5"
+
+      ##############################
+      # Kleuren voor de card-mod-invoervelden (zie card-mod-card)
+      ##############################
+      compact-input-fill-color: "#eef0f2"
+      compact-input-ink-color: "#1c1d1f"
+      compact-input-label-color: "#5f6368"
+      compact-input-idle-line-color: "rgba(0,0,0,0.22)"
+      compact-input-hover-line-color: "rgba(0,0,0,0.42)"
+
+Compact Violet Gradient:
   ##############################
-  # Overige accenten
+  # Dit theme heeft een lichte en een donkere modus. Wat voor beide
+  # modi gelijk is (compacte layout, card-mod) staat hier bovenaan;
+  # de kleuren staan per modus onder 'modes'.
   ##############################
-  label-badge-background-color: "#1e1e1e"
-  label-badge-border-color: "#00c8d4"
-  table-row-background-color: "#1e1e1e"
-  table-row-alternative-background-color: "#181818"
-  mdc-theme-primary: "#7c4dff"
-  mdc-theme-secondary: "#00c8d4"
 
   ##############################
   # Compactere regelhoogte
@@ -637,7 +662,7 @@ Compact Dark Violet Gradient:
   # LET OP: deze waarde MOET exact gelijk zijn aan de themanaam
   # bovenaan, anders wordt de card-mod-styling niet toegepast.
   ##############################
-  card-mod-theme: Compact Dark Violet Gradient
+  card-mod-theme: Compact Violet Gradient
 
   # --- RIJHOOGTE ---
   card-mod-row-yaml: |
@@ -669,311 +694,614 @@ Compact Dark Violet Gradient:
       padding: 6px 12px 2px !important;
       min-height: unset !important;
     }
-    /* Alle invoervelden donker + leesbaar */
+    /* Alle invoervelden leesbaar; de kleuren komen per modus uit de
+       compact-input-*-variabelen onder 'modes' */
     ha-textfield,
     ha-selector,
     ha-selector-number,
     ha-selector-text,
     ha-selector-select {
-      --mdc-text-field-fill-color: #262626 !important;
-      --mdc-text-field-ink-color: #e8e8e8 !important;
-      --mdc-text-field-label-ink-color: #9aa0a6 !important;
-      --mdc-text-field-idle-line-color: rgba(255,255,255,0.20) !important;
-      --mdc-text-field-hover-line-color: rgba(255,255,255,0.40) !important;
-      --mdc-select-fill-color: #262626 !important;
-      --mdc-select-ink-color: #e8e8e8 !important;
-      --mdc-select-label-ink-color: #9aa0a6 !important;
-      --text-field-fill-color: #262626 !important;
-      --input-fill-color: #262626 !important;
-      --input-ink-color: #e8e8e8 !important;
+      --mdc-text-field-fill-color: var(--compact-input-fill-color) !important;
+      --mdc-text-field-ink-color: var(--compact-input-ink-color) !important;
+      --mdc-text-field-label-ink-color: var(--compact-input-label-color) !important;
+      --mdc-text-field-idle-line-color: var(--compact-input-idle-line-color) !important;
+      --mdc-text-field-hover-line-color: var(--compact-input-hover-line-color) !important;
+      --mdc-select-fill-color: var(--compact-input-fill-color) !important;
+      --mdc-select-ink-color: var(--compact-input-ink-color) !important;
+      --mdc-select-label-ink-color: var(--compact-input-label-color) !important;
+      --text-field-fill-color: var(--compact-input-fill-color) !important;
+      --input-fill-color: var(--compact-input-fill-color) !important;
+      --input-ink-color: var(--compact-input-ink-color) !important;
     }
 
-Compact Dark Electric Blue Gradient:
-  ##############################
-  # Basiskleuren
-  #
-  # Hoofdkleur is electric blue (#00b0ff). Anders dan violet is deze
-  # kleur zelf al helder genoeg voor tekst en iconen op een donkere
-  # achtergrond (~7.7:1 op #131313), dus hier is GEEN lichtere variant
-  # nodig voor leesbaarheid. De basiskleur wordt overal gebruikt.
-  ##############################
-  primary-color: "#00b0ff"
-  accent-color: "#00b0ff"
-  light-primary-color: "#4ac4ff"
-  dark-primary-color: "#0079af"
+  modes:
+    ##########################################################################
+    # DONKER
+    ##########################################################################
+    dark:
+      ##############################
+      # Basiskleuren
+      #
+      # Hoofdkleur is nu violetblauw (#7c4dff).
+      # Let op: violet is op een donkere achtergrond visueel "zwaarder" dan
+      # lime. Voor tekst/iconen wordt daarom de lichtere variant #9a74ff
+      # gebruikt (contrast ~5.7:1 i.p.v. ~3.9:1).
+      ##############################
+      primary-color: "#7c4dff"
+      accent-color: "#7c4dff"
+      light-primary-color: "#9a74ff"
+      dark-primary-color: "#4a2896"
 
-  ##############################
-  # Kleuren-palette (HA 2025.8+)
-  ##############################
-  ha-color-primary-05: "#04121a"
-  ha-color-primary-10: "#062434"
-  ha-color-primary-20: "#08405e"
-  ha-color-primary-30: "#0a5c86"
-  ha-color-primary-40: "#0079af"
-  ha-color-primary-50: "#0096d8"
-  ha-color-primary-60: "#00b0ff"   # basis electric-blue-highlight
-  ha-color-primary-70: "#4ac4ff"
-  ha-color-primary-80: "#85d7ff"
-  ha-color-primary-90: "#c0eaff"
-  ha-color-primary-95: "#e3f5ff"
+      ##############################
+      # Kleuren-palette (HA 2025.8+)
+      ##############################
+      ha-color-primary-05: "#0a0616"
+      ha-color-primary-10: "#150b2b"
+      ha-color-primary-20: "#241247"
+      ha-color-primary-30: "#351c69"
+      ha-color-primary-40: "#4a2896"
+      ha-color-primary-50: "#6238c9"
+      ha-color-primary-60: "#7c4dff"   # basis violet-highlight
+      ha-color-primary-70: "#9a74ff"
+      ha-color-primary-80: "#b79bff"
+      ha-color-primary-90: "#d5c4ff"
+      ha-color-primary-95: "#ebe2ff"
 
-  # Secundair accent is magenta. Amber/oranje lag te dicht bij de
-  # warning-kleur (#ff9800) en roze te dicht bij danger (#ea7287);
-  # magenta blijft in grafieken en badges semantisch neutraal.
-  graph-color-1: "#00b0ff"   # electric blue
-  graph-color-2: "#e040fb"   # magenta
-  graph-color-3: "#0a5c86"   # blauw donker
-  graph-color-4: "#f2a1ff"   # magenta licht
-  graph-color-5: "#85d7ff"   # blauw licht
-  graph-color-6: "#7b1fa2"   # magenta donker
+      # Secundair accent is van indigo naar cyaan verschoven: indigo lag te
+      # dicht tegen het nieuwe violet aan en werd in grafieken onleesbaar.
+      graph-color-1: "#7c4dff"   # violet
+      graph-color-2: "#00c8d4"   # cyaan
+      graph-color-3: "#4a2896"   # violet donker
+      graph-color-4: "#7ee8f2"   # cyaan licht
+      graph-color-5: "#b79bff"   # violet licht
+      graph-color-6: "#036e78"   # cyaan donker
 
-  ##############################
-  # Achtergronden
-  #
-  # primary-background-color MOET een vlakke kleur blijven: HA zet die
-  # op veel plekken als 'background-color', waar een gradient ongeldig is.
-  # De gradient gaat daarom op 'lovelace-background' (= alleen het
-  # dashboard-canvas, niet de sidebar/dialogen).
-  ##############################
-  primary-background-color: "#0d0d0d"
-  secondary-background-color: "#141414"
-  divider-color: "rgba(255,255,255,0.07)"
+      ##############################
+      # Achtergronden
+      #
+      # primary-background-color MOET een vlakke kleur blijven: HA zet die
+      # op veel plekken als 'background-color', waar een gradient ongeldig is.
+      # De gradient gaat daarom op 'lovelace-background' (= alleen het
+      # dashboard-canvas, niet de sidebar/dialogen).
+      #
+      # De groene zweem in de gradient is vervangen door een violette.
+      ##############################
+      primary-background-color: "#0d0d0d"
+      secondary-background-color: "#141414"
+      divider-color: "rgba(255,255,255,0.07)"
 
-  lovelace-background: "radial-gradient(120% 80% at 50% 0%, #0a1219 0%, #0d0d0d 55%, #0b0b0b 100%)"
+      lovelace-background: "radial-gradient(120% 80% at 50% 0%, #100d1a 0%, #0d0d0d 55%, #0b0b0b 100%)"
 
-  ##############################
-  # Tekst
-  #
-  # text-primary-color = tekst OP de primaire kleur. Electric blue is
-  # licht (relatieve luminantie ~0.38), dus daar hoort donkere tekst op.
-  ##############################
-  primary-text-color: "#e8e8e8"
-  secondary-text-color: "#9aa0a6"
-  disabled-text-color: "#5f6368"
-  text-primary-color: "#04121a"
+      ##############################
+      # Tekst
+      #
+      # text-primary-color = tekst OP de primaire kleur. Op lime moest dat
+      # donker zijn, op violet juist licht.
+      ##############################
+      primary-text-color: "#e8e8e8"
+      secondary-text-color: "#9aa0a6"
+      disabled-text-color: "#5f6368"
+      text-primary-color: "#ffffff"
 
-  ##############################
-  # Kaarten - PLAT & MAT, met gradient-rand (glow linksboven)
-  #
-  # Truc: twee achtergrondlagen in EEN 'background'-shorthand.
-  #   laag 1 (padding-box) = het kaartvlak -> altijd vlak #131313
-  #   laag 2 (border-box)  = ligt ONDER de rand -> de gradient
-  # Rand zelf transparant -> laag 2 is alleen door de randring zichtbaar.
-  #
-  # PLAT/MAT:
-  #   - border-radius 3px
-  #   - box-shadow: none -> kaart ligt in het vlak, werpt geen schaduw
-  #   - neutrale randlijn gedempt naar 4% wit -> minder glans
-  #
-  # Afstellen:
-  #   scherper       -> ha-card-border-radius naar "2px" of "0px"
-  #   sterkere glow  -> alpha eerste stop (nu 0.90) omhoog
-  #   bredere glow   -> 70px 4px naar bv. 140px 6px
-  ##############################
-  card-background-color: "#131313"
-  ha-card-background: >-
-    linear-gradient(#131313, #131313) padding-box,
-    radial-gradient(70px 4px at 0% 0%,
-      rgba(0,176,255,0.90) 0%,
-      rgba(0,176,255,0.45) 35%,
-      rgba(0,176,255,0.14) 70%,
-      rgba(255,255,255,0.04) 100%) border-box
-  ha-card-border-radius: "3px"
-  ha-card-border-width: "1px"
-  ha-card-border-color: "transparent"
-  ha-card-box-shadow: "none"
-  ha-card-header-font-size: "18px"
+      ##############################
+      # Kaarten - PLAT & MAT, met gradient-rand (glow linksboven)
+      #
+      # Truc: twee achtergrondlagen in EEN 'background'-shorthand.
+      #   laag 1 (padding-box) = het kaartvlak -> altijd vlak #131313
+      #   laag 2 (border-box)  = ligt ONDER de rand -> de gradient
+      # Rand zelf transparant -> laag 2 is alleen door de randring zichtbaar.
+      #
+      # PLAT/MAT:
+      #   - border-radius 3px
+      #   - box-shadow: none -> kaart ligt in het vlak, werpt geen schaduw
+      #   - neutrale randlijn gedempt naar 4% wit -> minder glans
+      #
+      # Afstellen:
+      #   scherper       -> ha-card-border-radius naar "2px" of "0px"
+      #   sterkere glow  -> alpha eerste stop (nu 1.00) omhoog kan niet meer;
+      #                     gebruik dan #9a74ff als glow-kleur
+      #   bredere glow   -> 70px 4px naar bv. 140px 6px
+      #
+      # De glow-alpha's staan iets hoger dan bij lime: violet heeft minder
+      # eigen helderheid en verdwijnt anders in de achtergrond.
+      ##############################
+      card-background-color: "#131313"
+      ha-card-background: >-
+        linear-gradient(#131313, #131313) padding-box,
+        radial-gradient(70px 4px at 0% 0%,
+          rgba(140,100,255,1.00) 0%,
+          rgba(124,77,255,0.55) 35%,
+          rgba(124,77,255,0.18) 70%,
+          rgba(255,255,255,0.04) 100%) border-box
+      ha-card-border-radius: "3px"
+      ha-card-border-width: "1px"
+      ha-card-border-color: "transparent"
+      ha-card-box-shadow: "none"
+      ha-card-header-font-size: "18px"
 
-  ##############################
-  # Invoervelden / dropdowns / selects
-  ##############################
-  input-fill-color: "#262626"
-  input-disabled-fill-color: "#1e1e1e"
-  input-ink-color: "#e8e8e8"
-  input-label-ink-color: "#9aa0a6"
-  input-disabled-ink-color: "#c0c0c0"
-  input-placeholder-color: "#9aa0a6"
-  input-dropdown-icon-color: "#00b0ff"
-  input-idle-line-color: "rgba(255,255,255,0.20)"
-  input-hover-line-color: "rgba(255,255,255,0.40)"
-  input-disabled-line-color: "rgba(255,255,255,0.10)"
-  input-outlined-idle-border-color: "rgba(255,255,255,0.20)"
-  input-outlined-hover-border-color: "rgba(255,255,255,0.40)"
-  input-outlined-disabled-border-color: "rgba(255,255,255,0.10)"
+      ##############################
+      # Invoervelden / dropdowns / selects
+      ##############################
+      input-fill-color: "#262626"
+      input-disabled-fill-color: "#1e1e1e"
+      input-ink-color: "#e8e8e8"
+      input-label-ink-color: "#9aa0a6"
+      input-disabled-ink-color: "#c0c0c0"
+      input-placeholder-color: "#9aa0a6"
+      input-dropdown-icon-color: "#9a74ff"
+      input-idle-line-color: "rgba(255,255,255,0.20)"
+      input-hover-line-color: "rgba(255,255,255,0.40)"
+      input-disabled-line-color: "rgba(255,255,255,0.10)"
+      input-outlined-idle-border-color: "rgba(255,255,255,0.20)"
+      input-outlined-hover-border-color: "rgba(255,255,255,0.40)"
+      input-outlined-disabled-border-color: "rgba(255,255,255,0.10)"
 
-  mdc-text-field-fill-color: "#262626"
-  mdc-text-field-disabled-fill-color: "#1e1e1e"
-  mdc-text-field-ink-color: "#e8e8e8"
-  mdc-text-field-label-ink-color: "#9aa0a6"
-  mdc-text-field-idle-line-color: "rgba(255,255,255,0.20)"
-  mdc-text-field-hover-line-color: "rgba(255,255,255,0.40)"
-  mdc-select-fill-color: "#262626"
-  mdc-select-disabled-fill-color: "#1e1e1e"
-  mdc-select-ink-color: "#e8e8e8"
-  mdc-select-label-ink-color: "#9aa0a6"
-  mdc-select-idle-line-color: "rgba(255,255,255,0.20)"
-  mdc-select-hover-line-color: "rgba(255,255,255,0.40)"
-  mdc-select-dropdown-icon-color: "#00b0ff"
+      mdc-text-field-fill-color: "#262626"
+      mdc-text-field-disabled-fill-color: "#1e1e1e"
+      mdc-text-field-ink-color: "#e8e8e8"
+      mdc-text-field-label-ink-color: "#9aa0a6"
+      mdc-text-field-idle-line-color: "rgba(255,255,255,0.20)"
+      mdc-text-field-hover-line-color: "rgba(255,255,255,0.40)"
+      mdc-select-fill-color: "#262626"
+      mdc-select-disabled-fill-color: "#1e1e1e"
+      mdc-select-ink-color: "#e8e8e8"
+      mdc-select-label-ink-color: "#9aa0a6"
+      mdc-select-idle-line-color: "rgba(255,255,255,0.20)"
+      mdc-select-hover-line-color: "rgba(255,255,255,0.40)"
+      mdc-select-dropdown-icon-color: "#9a74ff"
 
-  mdc-theme-surface: "#262626"
-  mdc-theme-on-surface: "#e8e8e8"
-  mdc-dialog-scrim-color: "rgba(0,0,0,0.65)"
-  menu-surface-background-color: "#262626"
+      mdc-theme-surface: "#262626"
+      mdc-theme-on-surface: "#e8e8e8"
+      mdc-dialog-scrim-color: "rgba(0,0,0,0.65)"
+      menu-surface-background-color: "#262626"
 
-  paper-input-container-color: "#9aa0a6"
-  paper-input-container-focus-color: "#00b0ff"
-  paper-input-container-input-color: "#e8e8e8"
+      paper-input-container-color: "#9aa0a6"
+      paper-input-container-focus-color: "#7c4dff"
+      paper-input-container-input-color: "#e8e8e8"
 
-  ##############################
-  # Kaart-/YAML-editor, ha-form & dialogen
-  ##############################
-  ha-color-form-background: "#262626"
-  ha-color-form-background-hover: "#2e2e2e"
-  ha-color-form-background-disabled: "rgba(38,38,40,0.5)"
-  ha-color-fill-neutral-quiet-hover: "#2e2e2e"
+      ##############################
+      # Kaart-/YAML-editor, ha-form & dialogen
+      ##############################
+      ha-color-form-background: "#262626"
+      ha-color-form-background-hover: "#2e2e2e"
+      ha-color-form-background-disabled: "rgba(38,38,40,0.5)"
+      ha-color-fill-neutral-quiet-hover: "#2e2e2e"
 
-  ha-color-fill-warning-quiet-resting: "rgba(255,152,0,0.12)"
-  ha-color-fill-warning-quiet-hover: "rgba(255,152,0,0.18)"
-  ha-color-fill-warning-normal-resting: "rgba(255,152,0,0.15)"
-  ha-color-fill-warning-normal-hover: "rgba(255,152,0,0.22)"
-  ha-color-fill-warning-normal-active: "rgba(255,152,0,0.28)"
-  ha-color-on-warning-quiet: "#ffb74d"
-  ha-color-on-warning-normal: "#ffb74d"
-  ha-color-fill-danger-quiet-resting: "rgba(234,114,135,0.12)"
-  ha-color-fill-danger-quiet-hover: "rgba(234,114,135,0.18)"
-  ha-color-fill-danger-normal-resting: "rgba(234,114,135,0.15)"
-  ha-color-fill-danger-normal-hover: "rgba(234,114,135,0.22)"
-  ha-color-fill-danger-normal-active: "rgba(234,114,135,0.28)"
-  ha-color-on-danger-quiet: "#ea7287"
-  ha-color-on-danger-normal: "#ea7287"
-  input-background-color: "#262626"
-  input-disabled-label-ink-color: "#8a8a8a"
-  clear-background-color: "#262626"
-  data-table-background-color: "#1e1e1e"
-  paper-dialog-background-color: "#1e1e1e"
-  ha-dialog-border-radius: "4px"
-  ha-tooltip-background-color: "#262626"
-  ha-tooltip-color: "#e8e8e8"
+      ha-color-fill-warning-quiet-resting: "rgba(255,152,0,0.12)"
+      ha-color-fill-warning-quiet-hover: "rgba(255,152,0,0.18)"
+      ha-color-fill-warning-normal-resting: "rgba(255,152,0,0.15)"
+      ha-color-fill-warning-normal-hover: "rgba(255,152,0,0.22)"
+      ha-color-fill-warning-normal-active: "rgba(255,152,0,0.28)"
+      ha-color-on-warning-quiet: "#ffb74d"
+      ha-color-on-warning-normal: "#ffb74d"
+      ha-color-fill-danger-quiet-resting: "rgba(234,114,135,0.12)"
+      ha-color-fill-danger-quiet-hover: "rgba(234,114,135,0.18)"
+      ha-color-fill-danger-normal-resting: "rgba(234,114,135,0.15)"
+      ha-color-fill-danger-normal-hover: "rgba(234,114,135,0.22)"
+      ha-color-fill-danger-normal-active: "rgba(234,114,135,0.28)"
+      ha-color-on-danger-quiet: "#ea7287"
+      ha-color-on-danger-normal: "#ea7287"
+      input-background-color: "#262626"
+      input-disabled-label-ink-color: "#8a8a8a"
+      clear-background-color: "#262626"
+      data-table-background-color: "#1e1e1e"
+      paper-dialog-background-color: "#1e1e1e"
+      ha-dialog-border-radius: "4px"
+      ha-tooltip-background-color: "#262626"
+      ha-tooltip-color: "#e8e8e8"
 
-  ##############################
-  # Syntax-highlighting
-  #
-  # De originele string- en keyword-kleuren waren beide blauwtinten en
-  # zouden nu samenvallen met de hoofdkleur. Strings zijn groen
-  # geworden, keywords magenta, zodat alle tokens uit elkaar blijven.
-  ##############################
-  code-editor-background-color: "#161616"
-  markdown-code-background-color: "#161616"
-  codemirror-meta: "#e8e8e8"
-  codemirror-property: "#4ac4ff"
-  codemirror-atom: "#4ac4ff"
-  codemirror-string: "#9ccc65"
-  codemirror-keyword: "#e07bff"
-  codemirror-number: "#ff8a3d"
-  codemirror-comment: "#9aa0a6"
-  codemirror-operator: "#e8e8e8"
-  codemirror-variable: "#e8e8e8"
-  codemirror-variable-2: "#4ac4ff"
-  codemirror-variable-3: "#ffd54f"
-  codemirror-def: "#ffd54f"
-  codemirror-tag: "#e07bff"
-  codemirror-attribute: "#4ac4ff"
+      ##############################
+      # Syntax-highlighting
+      #
+      # Het oude 'keyword' blauw (#8ca9ff) botste met violet, dat is nu
+      # teal geworden zodat alle tokens onderling te onderscheiden blijven.
+      ##############################
+      code-editor-background-color: "#161616"
+      markdown-code-background-color: "#161616"
+      codemirror-meta: "#e8e8e8"
+      codemirror-property: "#a37bff"
+      codemirror-atom: "#a37bff"
+      codemirror-string: "#77c4e5"
+      codemirror-keyword: "#66d9c8"
+      codemirror-number: "#ff8a3d"
+      codemirror-comment: "#9aa0a6"
+      codemirror-operator: "#e8e8e8"
+      codemirror-variable: "#e8e8e8"
+      codemirror-variable-2: "#a37bff"
+      codemirror-variable-3: "#77c4e5"
+      codemirror-def: "#77c4e5"
+      codemirror-tag: "#66d9c8"
+      codemirror-attribute: "#a37bff"
 
-  ##############################
-  # App header
-  ##############################
-  app-header-background-color: "#161616"
-  app-header-text-color: "#e8e8e8"
-  app-header-selection-bar-color: "#00b0ff"
+      ##############################
+      # App header
+      ##############################
+      app-header-background-color: "#161616"
+      app-header-text-color: "#e8e8e8"
+      app-header-selection-bar-color: "#7c4dff"
 
-  ##############################
-  # Sidebar
-  ##############################
-  sidebar-background-color: "#161616"
-  sidebar-icon-color: "#9aa0a6"
-  sidebar-text-color: "#e8e8e8"
-  sidebar-selected-background-color: "#1e1e1e"
-  sidebar-selected-icon-color: "#00b0ff"
-  sidebar-selected-text-color: "#00b0ff"
+      ##############################
+      # Sidebar
+      ##############################
+      sidebar-background-color: "#161616"
+      sidebar-icon-color: "#9aa0a6"
+      sidebar-text-color: "#e8e8e8"
+      sidebar-selected-background-color: "#1e1e1e"
+      sidebar-selected-icon-color: "#9a74ff"
+      sidebar-selected-text-color: "#9a74ff"
 
-  ##############################
-  # Iconen / states
-  ##############################
-  state-icon-color: "#9aa0a6"
-  state-icon-active-color: "#00b0ff"
-  paper-item-icon-color: "#9aa0a6"
-  paper-item-icon-active-color: "#00b0ff"
-  state-active-color: "#00b0ff"
+      ##############################
+      # Iconen / states
+      ##############################
+      state-icon-color: "#9aa0a6"
+      state-icon-active-color: "#9a74ff"
+      paper-item-icon-color: "#9aa0a6"
+      paper-item-icon-active-color: "#9a74ff"
+      state-active-color: "#9a74ff"
 
-  ##############################
-  # Klimaat-statuskleuren
-  #
-  # LET OP: 'cool' is standaard al blauw in HA. Met een blauw thema
-  # is het verschil tussen 'koelen' en 'actief' minder duidelijk;
-  # heat blijft daarom nadrukkelijk oranje.
-  ##############################
-  state-climate-cool-color: "#00b0ff"
-  state-climate-auto-color: "#00b0ff"
-  state-climate-heat_cool-color: "#00b0ff"
-  state-climate-dry-color: "#4ac4ff"
-  state-climate-fan_only-color: "#0096d8"
-  state-climate-heat-color: "#ff9800"
-  state-climate-idle-color: "#6a6a6a"
-  state-climate-off-color: "#6a6a6a"
+      ##############################
+      # Klimaat-statuskleuren
+      ##############################
+      state-climate-cool-color: "#7c4dff"
+      state-climate-auto-color: "#7c4dff"
+      state-climate-heat_cool-color: "#7c4dff"
+      state-climate-dry-color: "#9a74ff"
+      state-climate-fan_only-color: "#6238c9"
+      state-climate-heat-color: "#ff9800"
+      state-climate-idle-color: "#6a6a6a"
+      state-climate-off-color: "#6a6a6a"
 
-  ##############################
-  # Toggles / switches
-  #
-  # Donkere thumb op een lichte track, net als in het lime-origineel.
-  ##############################
-  ha-switch-checked-background-color: "#00b0ff"
-  ha-switch-checked-background-color-hover: "#3ac0ff"
-  ha-switch-checked-thumb-background-color: "#0a1620"
-  ha-switch-checked-thumb-background-color-hover: "#0a1620"
-  ha-switch-checked-border-color: "#00b0ff"
-  ha-switch-checked-thumb-border-color: "#0a1620"
+      ##############################
+      # Toggles / switches
+      #
+      # Thumb was donker (#2a2a2a) omdat lime licht is. Violet is donkerder,
+      # dus een lichte thumb geeft nu meer contrast in de 'aan'-stand.
+      ##############################
+      ha-switch-checked-background-color: "#7c4dff"
+      ha-switch-checked-background-color-hover: "#9160ff"
+      ha-switch-checked-thumb-background-color: "#f0eaff"
+      ha-switch-checked-thumb-background-color-hover: "#f0eaff"
+      ha-switch-checked-border-color: "#7c4dff"
+      ha-switch-checked-thumb-border-color: "#f0eaff"
 
-  switch-checked-color: "#00b0ff"
-  switch-checked-track-color: "#00b0ff"
-  switch-checked-button-color: "#0a1620"
-  switch-unchecked-button-color: "#6b6b6b"
-  switch-unchecked-track-color: "#3a3a3a"
+      switch-checked-color: "#7c4dff"
+      switch-checked-track-color: "#7c4dff"
+      switch-checked-button-color: "#f0eaff"
+      switch-unchecked-button-color: "#6b6b6b"
+      switch-unchecked-track-color: "#3a3a3a"
 
-  mdc-switch-selected-track-color: "#00b0ff"
-  mdc-switch-selected-hover-track-color: "#00b0ff"
-  mdc-switch-selected-focus-track-color: "#00b0ff"
-  mdc-switch-selected-pressed-track-color: "#00b0ff"
-  mdc-switch-selected-handle-color: "#0a1620"
-  mdc-switch-selected-hover-handle-color: "#0a1620"
-  mdc-switch-selected-focus-handle-color: "#0a1620"
-  mdc-switch-selected-pressed-handle-color: "#0a1620"
-  mdc-switch-selected-icon-color: "#0a1620"
+      mdc-switch-selected-track-color: "#7c4dff"
+      mdc-switch-selected-hover-track-color: "#7c4dff"
+      mdc-switch-selected-focus-track-color: "#7c4dff"
+      mdc-switch-selected-pressed-track-color: "#7c4dff"
+      mdc-switch-selected-handle-color: "#f0eaff"
+      mdc-switch-selected-hover-handle-color: "#f0eaff"
+      mdc-switch-selected-focus-handle-color: "#f0eaff"
+      mdc-switch-selected-pressed-handle-color: "#f0eaff"
+      mdc-switch-selected-icon-color: "#4a2896"
 
-  paper-toggle-button-checked-bar-color: "#00b0ff"
-  paper-toggle-button-checked-button-color: "#0a1620"
+      paper-toggle-button-checked-bar-color: "#7c4dff"
+      paper-toggle-button-checked-button-color: "#f0eaff"
 
-  ##############################
-  # Sliders
-  ##############################
-  paper-slider-active-color: "#00b0ff"
-  paper-slider-knob-color: "#00b0ff"
-  paper-slider-pin-color: "#00b0ff"
-  paper-slider-secondary-color: "#e040fb"
+      ##############################
+      # Sliders
+      ##############################
+      paper-slider-active-color: "#7c4dff"
+      paper-slider-knob-color: "#9a74ff"
+      paper-slider-pin-color: "#7c4dff"
+      paper-slider-secondary-color: "#00c8d4"
 
-  ##############################
-  # Binary sensors
-  ##############################
-  state-binary_sensor-active-color: "#00b0ff"
+      ##############################
+      # Binary sensors
+      ##############################
+      state-binary_sensor-active-color: "#9a74ff"
 
+      ##############################
+      # Overige accenten
+      ##############################
+      label-badge-background-color: "#1e1e1e"
+      label-badge-border-color: "#00c8d4"
+      table-row-background-color: "#1e1e1e"
+      table-row-alternative-background-color: "#181818"
+      mdc-theme-primary: "#7c4dff"
+      mdc-theme-secondary: "#00c8d4"
+
+      ##############################
+      # Kleuren voor de card-mod-invoervelden (zie card-mod-card)
+      ##############################
+      compact-input-fill-color: "#262626"
+      compact-input-ink-color: "#e8e8e8"
+      compact-input-label-color: "#9aa0a6"
+      compact-input-idle-line-color: "rgba(255,255,255,0.20)"
+      compact-input-hover-line-color: "rgba(255,255,255,0.40)"
+
+    ##########################################################################
+    # LICHT
+    ##########################################################################
+    light:
+      ##############################
+      # Basiskleuren (licht)
+      #
+      # Violet #7c4dff haalt op wit 4.8:1 en blijft dus de primaire
+      # kleur. Tekst en iconen gebruiken het donkerdere #6238c9 (7.2:1).
+      ##############################
+      primary-color: "#7c4dff"
+      accent-color: "#7c4dff"
+      light-primary-color: "#b79bff"
+      dark-primary-color: "#4a2896"
+
+      ##############################
+      # Kleuren-palette (HA 2025.8+) - gelijk aan donker
+      ##############################
+      ha-color-primary-05: "#0a0616"
+      ha-color-primary-10: "#150b2b"
+      ha-color-primary-20: "#241247"
+      ha-color-primary-30: "#351c69"
+      ha-color-primary-40: "#4a2896"
+      ha-color-primary-50: "#6238c9"
+      ha-color-primary-60: "#7c4dff"   # basis violet-highlight
+      ha-color-primary-70: "#9a74ff"
+      ha-color-primary-80: "#b79bff"
+      ha-color-primary-90: "#d5c4ff"
+      ha-color-primary-95: "#ebe2ff"
+
+      graph-color-1: "#7c4dff"   # violet
+      graph-color-2: "#009aa4"   # cyaan
+      graph-color-3: "#4a2896"   # violet donker
+      graph-color-4: "#00c8d4"   # cyaan licht
+      graph-color-5: "#b79bff"   # violet licht
+      graph-color-6: "#036e78"   # cyaan donker
+
+      ##############################
+      # Achtergronden
+      #
+      # Lichtgrijs canvas met witte kaarten. De gradient op het
+      # dashboard-canvas heeft een lichte violette-zweem.
+      ##############################
+      primary-background-color: "#f4f5f7"
+      secondary-background-color: "#eceef1"
+      divider-color: "rgba(0,0,0,0.08)"
+
+      lovelace-background: "radial-gradient(120% 80% at 50% 0%, #efebf9 0%, #f4f5f7 55%, #f1f2f4 100%)"
+
+      ##############################
+      # Tekst
+      #
+      # text-primary-color = tekst OP de primaire kleur. De primaire kleur
+      # is in licht donker genoeg voor witte tekst.
+      ##############################
+      primary-text-color: "#1c1d1f"
+      secondary-text-color: "#5f6368"
+      disabled-text-color: "#a0a4a8"
+      text-primary-color: "#ffffff"
+
+      ##############################
+      # Kaarten - PLAT & MAT, met gradient-rand (glow linksboven)
+      #
+      # Zelfde truc als in donker: laag 1 (padding-box) is het witte
+      # kaartvlak, laag 2 (border-box) de gradient onder de transparante
+      # rand. De neutrale randlijn is 8% zwart: 4% wit valt op wit weg.
+      ##############################
+      card-background-color: "#ffffff"
+      ha-card-background: >-
+        linear-gradient(#ffffff, #ffffff) padding-box,
+        radial-gradient(70px 4px at 0% 0%,
+          rgba(124,77,255,1.00) 0%,
+          rgba(124,77,255,0.55) 35%,
+          rgba(124,77,255,0.20) 70%,
+          rgba(0,0,0,0.08) 100%) border-box
+      ha-card-border-radius: "3px"
+      ha-card-border-width: "1px"
+      ha-card-border-color: "transparent"
+      ha-card-box-shadow: "none"
+      ha-card-header-font-size: "18px"
+
+      ##############################
+      # Invoervelden / dropdowns / selects
+      ##############################
+      input-fill-color: "#eef0f2"
+      input-disabled-fill-color: "#f5f6f7"
+      input-ink-color: "#1c1d1f"
+      input-label-ink-color: "#5f6368"
+      input-disabled-ink-color: "#8a8e93"
+      input-placeholder-color: "#6b7076"
+      input-dropdown-icon-color: "#6238c9"
+      input-idle-line-color: "rgba(0,0,0,0.22)"
+      input-hover-line-color: "rgba(0,0,0,0.42)"
+      input-disabled-line-color: "rgba(0,0,0,0.10)"
+      input-outlined-idle-border-color: "rgba(0,0,0,0.22)"
+      input-outlined-hover-border-color: "rgba(0,0,0,0.42)"
+      input-outlined-disabled-border-color: "rgba(0,0,0,0.10)"
+
+      mdc-text-field-fill-color: "#eef0f2"
+      mdc-text-field-disabled-fill-color: "#f5f6f7"
+      mdc-text-field-ink-color: "#1c1d1f"
+      mdc-text-field-label-ink-color: "#5f6368"
+      mdc-text-field-idle-line-color: "rgba(0,0,0,0.22)"
+      mdc-text-field-hover-line-color: "rgba(0,0,0,0.42)"
+      mdc-select-fill-color: "#eef0f2"
+      mdc-select-disabled-fill-color: "#f5f6f7"
+      mdc-select-ink-color: "#1c1d1f"
+      mdc-select-label-ink-color: "#5f6368"
+      mdc-select-idle-line-color: "rgba(0,0,0,0.22)"
+      mdc-select-hover-line-color: "rgba(0,0,0,0.42)"
+      mdc-select-dropdown-icon-color: "#6238c9"
+
+      mdc-theme-surface: "#ffffff"
+      mdc-theme-on-surface: "#1c1d1f"
+      mdc-dialog-scrim-color: "rgba(0,0,0,0.32)"
+      menu-surface-background-color: "#ffffff"
+
+      paper-input-container-color: "#5f6368"
+      paper-input-container-focus-color: "#7c4dff"
+      paper-input-container-input-color: "#1c1d1f"
+
+      ##############################
+      # Kaart-/YAML-editor, ha-form & dialogen
+      #
+      # Warning/danger-tekst is donkerder dan in donker, zodat die op
+      # de lichte vulling leesbaar blijft (>= 4.5:1).
+      ##############################
+      ha-color-form-background: "#eef0f2"
+      ha-color-form-background-hover: "#e6e8eb"
+      ha-color-form-background-disabled: "rgba(238,240,242,0.5)"
+      ha-color-fill-neutral-quiet-hover: "#e6e8eb"
+
+      ha-color-fill-warning-quiet-resting: "rgba(255,152,0,0.10)"
+      ha-color-fill-warning-quiet-hover: "rgba(255,152,0,0.16)"
+      ha-color-fill-warning-normal-resting: "rgba(255,152,0,0.14)"
+      ha-color-fill-warning-normal-hover: "rgba(255,152,0,0.20)"
+      ha-color-fill-warning-normal-active: "rgba(255,152,0,0.26)"
+      ha-color-on-warning-quiet: "#a14a00"
+      ha-color-on-warning-normal: "#a14a00"
+      ha-color-fill-danger-quiet-resting: "rgba(198,40,40,0.08)"
+      ha-color-fill-danger-quiet-hover: "rgba(198,40,40,0.14)"
+      ha-color-fill-danger-normal-resting: "rgba(198,40,40,0.12)"
+      ha-color-fill-danger-normal-hover: "rgba(198,40,40,0.18)"
+      ha-color-fill-danger-normal-active: "rgba(198,40,40,0.24)"
+      ha-color-on-danger-quiet: "#c62828"
+      ha-color-on-danger-normal: "#c62828"
+      input-background-color: "#eef0f2"
+      input-disabled-label-ink-color: "#8a8e93"
+      clear-background-color: "#ffffff"
+      data-table-background-color: "#ffffff"
+      paper-dialog-background-color: "#ffffff"
+      ha-dialog-border-radius: "4px"
+      ha-tooltip-background-color: "#2a2b2e"
+      ha-tooltip-color: "#f2f2f2"
+
+      ##############################
+      # Syntax-highlighting
+      #
+      # Donkere varianten van de tokenkleuren; allemaal >= 4.5:1 op de
+      # lichte editor-achtergrond.
+      ##############################
+      code-editor-background-color: "#f6f7f8"
+      markdown-code-background-color: "#f6f7f8"
+      codemirror-meta: "#1c1d1f"
+      codemirror-property: "#6238c9"
+      codemirror-atom: "#6238c9"
+      codemirror-string: "#0277bd"
+      codemirror-keyword: "#00796b"
+      codemirror-number: "#b45309"
+      codemirror-comment: "#6b7076"
+      codemirror-operator: "#1c1d1f"
+      codemirror-variable: "#1c1d1f"
+      codemirror-variable-2: "#6238c9"
+      codemirror-variable-3: "#0277bd"
+      codemirror-def: "#0277bd"
+      codemirror-tag: "#00796b"
+      codemirror-attribute: "#6238c9"
+
+      ##############################
+      # App header
+      ##############################
+      app-header-background-color: "#ffffff"
+      app-header-text-color: "#1c1d1f"
+      app-header-selection-bar-color: "#7c4dff"
+
+      ##############################
+      # Sidebar
+      ##############################
+      sidebar-background-color: "#fafbfc"
+      sidebar-icon-color: "#5f6368"
+      sidebar-text-color: "#1c1d1f"
+      sidebar-selected-background-color: "#eceef1"
+      sidebar-selected-icon-color: "#6238c9"
+      sidebar-selected-text-color: "#6238c9"
+
+      ##############################
+      # Iconen / states
+      ##############################
+      state-icon-color: "#5f6368"
+      state-icon-active-color: "#6238c9"
+      paper-item-icon-color: "#5f6368"
+      paper-item-icon-active-color: "#6238c9"
+      state-active-color: "#6238c9"
+
+      ##############################
+      # Klimaat-statuskleuren
+      #
+      # Heat is donkerder oranje dan in donker: #ff9800 is op wit te licht.
+      ##############################
+      state-climate-cool-color: "#7c4dff"
+      state-climate-auto-color: "#7c4dff"
+      state-climate-heat_cool-color: "#7c4dff"
+      state-climate-dry-color: "#9a74ff"
+      state-climate-fan_only-color: "#6238c9"
+      state-climate-heat-color: "#e65100"
+      state-climate-idle-color: "#9aa0a6"
+      state-climate-off-color: "#9aa0a6"
+
+      ##############################
+      # Toggles / switches
+      #
+      # Witte thumb op de violette track, net als in donker.
+      ##############################
+      ha-switch-checked-background-color: "#7c4dff"
+      ha-switch-checked-background-color-hover: "#6a3df0"
+      ha-switch-checked-thumb-background-color: "#ffffff"
+      ha-switch-checked-thumb-background-color-hover: "#ffffff"
+      ha-switch-checked-border-color: "#7c4dff"
+      ha-switch-checked-thumb-border-color: "#ffffff"
+
+      switch-checked-color: "#7c4dff"
+      switch-checked-track-color: "#7c4dff"
+      switch-checked-button-color: "#ffffff"
+      switch-unchecked-button-color: "#fafafa"
+      switch-unchecked-track-color: "#bdc1c6"
+
+      mdc-switch-selected-track-color: "#7c4dff"
+      mdc-switch-selected-hover-track-color: "#7c4dff"
+      mdc-switch-selected-focus-track-color: "#7c4dff"
+      mdc-switch-selected-pressed-track-color: "#7c4dff"
+      mdc-switch-selected-handle-color: "#ffffff"
+      mdc-switch-selected-hover-handle-color: "#ffffff"
+      mdc-switch-selected-focus-handle-color: "#ffffff"
+      mdc-switch-selected-pressed-handle-color: "#ffffff"
+      mdc-switch-selected-icon-color: "#4a2896"
+
+      paper-toggle-button-checked-bar-color: "#7c4dff"
+      paper-toggle-button-checked-button-color: "#ffffff"
+
+      ##############################
+      # Sliders
+      ##############################
+      paper-slider-active-color: "#7c4dff"
+      paper-slider-knob-color: "#7c4dff"
+      paper-slider-pin-color: "#7c4dff"
+      paper-slider-secondary-color: "#00838c"
+
+      ##############################
+      # Binary sensors
+      ##############################
+      state-binary_sensor-active-color: "#6238c9"
+
+      ##############################
+      # Overige accenten
+      ##############################
+      label-badge-background-color: "#ffffff"
+      label-badge-border-color: "#00838c"
+      table-row-background-color: "#ffffff"
+      table-row-alternative-background-color: "#f7f8f9"
+      mdc-theme-primary: "#7c4dff"
+      mdc-theme-secondary: "#00838c"
+
+      ##############################
+      # Kleuren voor de card-mod-invoervelden (zie card-mod-card)
+      ##############################
+      compact-input-fill-color: "#eef0f2"
+      compact-input-ink-color: "#1c1d1f"
+      compact-input-label-color: "#5f6368"
+      compact-input-idle-line-color: "rgba(0,0,0,0.22)"
+      compact-input-hover-line-color: "rgba(0,0,0,0.42)"
+
+Compact Electric Blue Gradient:
   ##############################
-  # Overige accenten
+  # Dit theme heeft een lichte en een donkere modus. Wat voor beide
+  # modi gelijk is (compacte layout, card-mod) staat hier bovenaan;
+  # de kleuren staan per modus onder 'modes'.
   ##############################
-  label-badge-background-color: "#1e1e1e"
-  label-badge-border-color: "#e040fb"
-  table-row-background-color: "#1e1e1e"
-  table-row-alternative-background-color: "#181818"
-  mdc-theme-primary: "#00b0ff"
-  mdc-theme-secondary: "#e040fb"
 
   ##############################
   # Compactere regelhoogte
@@ -987,7 +1315,7 @@ Compact Dark Electric Blue Gradient:
   # LET OP: deze waarde MOET exact gelijk zijn aan de themanaam
   # bovenaan, anders wordt de card-mod-styling niet toegepast.
   ##############################
-  card-mod-theme: Compact Dark Electric Blue Gradient
+  card-mod-theme: Compact Electric Blue Gradient
 
   # --- RIJHOOGTE ---
   card-mod-row-yaml: |
@@ -1019,21 +1347,604 @@ Compact Dark Electric Blue Gradient:
       padding: 6px 12px 2px !important;
       min-height: unset !important;
     }
-    /* Alle invoervelden donker + leesbaar */
+    /* Alle invoervelden leesbaar; de kleuren komen per modus uit de
+       compact-input-*-variabelen onder 'modes' */
     ha-textfield,
     ha-selector,
     ha-selector-number,
     ha-selector-text,
     ha-selector-select {
-      --mdc-text-field-fill-color: #262626 !important;
-      --mdc-text-field-ink-color: #e8e8e8 !important;
-      --mdc-text-field-label-ink-color: #9aa0a6 !important;
-      --mdc-text-field-idle-line-color: rgba(255,255,255,0.20) !important;
-      --mdc-text-field-hover-line-color: rgba(255,255,255,0.40) !important;
-      --mdc-select-fill-color: #262626 !important;
-      --mdc-select-ink-color: #e8e8e8 !important;
-      --mdc-select-label-ink-color: #9aa0a6 !important;
-      --text-field-fill-color: #262626 !important;
-      --input-fill-color: #262626 !important;
-      --input-ink-color: #e8e8e8 !important;
+      --mdc-text-field-fill-color: var(--compact-input-fill-color) !important;
+      --mdc-text-field-ink-color: var(--compact-input-ink-color) !important;
+      --mdc-text-field-label-ink-color: var(--compact-input-label-color) !important;
+      --mdc-text-field-idle-line-color: var(--compact-input-idle-line-color) !important;
+      --mdc-text-field-hover-line-color: var(--compact-input-hover-line-color) !important;
+      --mdc-select-fill-color: var(--compact-input-fill-color) !important;
+      --mdc-select-ink-color: var(--compact-input-ink-color) !important;
+      --mdc-select-label-ink-color: var(--compact-input-label-color) !important;
+      --text-field-fill-color: var(--compact-input-fill-color) !important;
+      --input-fill-color: var(--compact-input-fill-color) !important;
+      --input-ink-color: var(--compact-input-ink-color) !important;
     }
+
+  modes:
+    ##########################################################################
+    # DONKER
+    ##########################################################################
+    dark:
+      ##############################
+      # Basiskleuren
+      #
+      # Hoofdkleur is electric blue (#00b0ff). Anders dan violet is deze
+      # kleur zelf al helder genoeg voor tekst en iconen op een donkere
+      # achtergrond (~7.7:1 op #131313), dus hier is GEEN lichtere variant
+      # nodig voor leesbaarheid. De basiskleur wordt overal gebruikt.
+      ##############################
+      primary-color: "#00b0ff"
+      accent-color: "#00b0ff"
+      light-primary-color: "#4ac4ff"
+      dark-primary-color: "#0079af"
+
+      ##############################
+      # Kleuren-palette (HA 2025.8+)
+      ##############################
+      ha-color-primary-05: "#04121a"
+      ha-color-primary-10: "#062434"
+      ha-color-primary-20: "#08405e"
+      ha-color-primary-30: "#0a5c86"
+      ha-color-primary-40: "#0079af"
+      ha-color-primary-50: "#0096d8"
+      ha-color-primary-60: "#00b0ff"   # basis electric-blue-highlight
+      ha-color-primary-70: "#4ac4ff"
+      ha-color-primary-80: "#85d7ff"
+      ha-color-primary-90: "#c0eaff"
+      ha-color-primary-95: "#e3f5ff"
+
+      # Secundair accent is magenta. Amber/oranje lag te dicht bij de
+      # warning-kleur (#ff9800) en roze te dicht bij danger (#ea7287);
+      # magenta blijft in grafieken en badges semantisch neutraal.
+      graph-color-1: "#00b0ff"   # electric blue
+      graph-color-2: "#e040fb"   # magenta
+      graph-color-3: "#0a5c86"   # blauw donker
+      graph-color-4: "#f2a1ff"   # magenta licht
+      graph-color-5: "#85d7ff"   # blauw licht
+      graph-color-6: "#7b1fa2"   # magenta donker
+
+      ##############################
+      # Achtergronden
+      #
+      # primary-background-color MOET een vlakke kleur blijven: HA zet die
+      # op veel plekken als 'background-color', waar een gradient ongeldig is.
+      # De gradient gaat daarom op 'lovelace-background' (= alleen het
+      # dashboard-canvas, niet de sidebar/dialogen).
+      ##############################
+      primary-background-color: "#0d0d0d"
+      secondary-background-color: "#141414"
+      divider-color: "rgba(255,255,255,0.07)"
+
+      lovelace-background: "radial-gradient(120% 80% at 50% 0%, #0a1219 0%, #0d0d0d 55%, #0b0b0b 100%)"
+
+      ##############################
+      # Tekst
+      #
+      # text-primary-color = tekst OP de primaire kleur. Electric blue is
+      # licht (relatieve luminantie ~0.38), dus daar hoort donkere tekst op.
+      ##############################
+      primary-text-color: "#e8e8e8"
+      secondary-text-color: "#9aa0a6"
+      disabled-text-color: "#5f6368"
+      text-primary-color: "#04121a"
+
+      ##############################
+      # Kaarten - PLAT & MAT, met gradient-rand (glow linksboven)
+      #
+      # Truc: twee achtergrondlagen in EEN 'background'-shorthand.
+      #   laag 1 (padding-box) = het kaartvlak -> altijd vlak #131313
+      #   laag 2 (border-box)  = ligt ONDER de rand -> de gradient
+      # Rand zelf transparant -> laag 2 is alleen door de randring zichtbaar.
+      #
+      # PLAT/MAT:
+      #   - border-radius 3px
+      #   - box-shadow: none -> kaart ligt in het vlak, werpt geen schaduw
+      #   - neutrale randlijn gedempt naar 4% wit -> minder glans
+      #
+      # Afstellen:
+      #   scherper       -> ha-card-border-radius naar "2px" of "0px"
+      #   sterkere glow  -> alpha eerste stop (nu 0.90) omhoog
+      #   bredere glow   -> 70px 4px naar bv. 140px 6px
+      ##############################
+      card-background-color: "#131313"
+      ha-card-background: >-
+        linear-gradient(#131313, #131313) padding-box,
+        radial-gradient(70px 4px at 0% 0%,
+          rgba(0,176,255,0.90) 0%,
+          rgba(0,176,255,0.45) 35%,
+          rgba(0,176,255,0.14) 70%,
+          rgba(255,255,255,0.04) 100%) border-box
+      ha-card-border-radius: "3px"
+      ha-card-border-width: "1px"
+      ha-card-border-color: "transparent"
+      ha-card-box-shadow: "none"
+      ha-card-header-font-size: "18px"
+
+      ##############################
+      # Invoervelden / dropdowns / selects
+      ##############################
+      input-fill-color: "#262626"
+      input-disabled-fill-color: "#1e1e1e"
+      input-ink-color: "#e8e8e8"
+      input-label-ink-color: "#9aa0a6"
+      input-disabled-ink-color: "#c0c0c0"
+      input-placeholder-color: "#9aa0a6"
+      input-dropdown-icon-color: "#00b0ff"
+      input-idle-line-color: "rgba(255,255,255,0.20)"
+      input-hover-line-color: "rgba(255,255,255,0.40)"
+      input-disabled-line-color: "rgba(255,255,255,0.10)"
+      input-outlined-idle-border-color: "rgba(255,255,255,0.20)"
+      input-outlined-hover-border-color: "rgba(255,255,255,0.40)"
+      input-outlined-disabled-border-color: "rgba(255,255,255,0.10)"
+
+      mdc-text-field-fill-color: "#262626"
+      mdc-text-field-disabled-fill-color: "#1e1e1e"
+      mdc-text-field-ink-color: "#e8e8e8"
+      mdc-text-field-label-ink-color: "#9aa0a6"
+      mdc-text-field-idle-line-color: "rgba(255,255,255,0.20)"
+      mdc-text-field-hover-line-color: "rgba(255,255,255,0.40)"
+      mdc-select-fill-color: "#262626"
+      mdc-select-disabled-fill-color: "#1e1e1e"
+      mdc-select-ink-color: "#e8e8e8"
+      mdc-select-label-ink-color: "#9aa0a6"
+      mdc-select-idle-line-color: "rgba(255,255,255,0.20)"
+      mdc-select-hover-line-color: "rgba(255,255,255,0.40)"
+      mdc-select-dropdown-icon-color: "#00b0ff"
+
+      mdc-theme-surface: "#262626"
+      mdc-theme-on-surface: "#e8e8e8"
+      mdc-dialog-scrim-color: "rgba(0,0,0,0.65)"
+      menu-surface-background-color: "#262626"
+
+      paper-input-container-color: "#9aa0a6"
+      paper-input-container-focus-color: "#00b0ff"
+      paper-input-container-input-color: "#e8e8e8"
+
+      ##############################
+      # Kaart-/YAML-editor, ha-form & dialogen
+      ##############################
+      ha-color-form-background: "#262626"
+      ha-color-form-background-hover: "#2e2e2e"
+      ha-color-form-background-disabled: "rgba(38,38,40,0.5)"
+      ha-color-fill-neutral-quiet-hover: "#2e2e2e"
+
+      ha-color-fill-warning-quiet-resting: "rgba(255,152,0,0.12)"
+      ha-color-fill-warning-quiet-hover: "rgba(255,152,0,0.18)"
+      ha-color-fill-warning-normal-resting: "rgba(255,152,0,0.15)"
+      ha-color-fill-warning-normal-hover: "rgba(255,152,0,0.22)"
+      ha-color-fill-warning-normal-active: "rgba(255,152,0,0.28)"
+      ha-color-on-warning-quiet: "#ffb74d"
+      ha-color-on-warning-normal: "#ffb74d"
+      ha-color-fill-danger-quiet-resting: "rgba(234,114,135,0.12)"
+      ha-color-fill-danger-quiet-hover: "rgba(234,114,135,0.18)"
+      ha-color-fill-danger-normal-resting: "rgba(234,114,135,0.15)"
+      ha-color-fill-danger-normal-hover: "rgba(234,114,135,0.22)"
+      ha-color-fill-danger-normal-active: "rgba(234,114,135,0.28)"
+      ha-color-on-danger-quiet: "#ea7287"
+      ha-color-on-danger-normal: "#ea7287"
+      input-background-color: "#262626"
+      input-disabled-label-ink-color: "#8a8a8a"
+      clear-background-color: "#262626"
+      data-table-background-color: "#1e1e1e"
+      paper-dialog-background-color: "#1e1e1e"
+      ha-dialog-border-radius: "4px"
+      ha-tooltip-background-color: "#262626"
+      ha-tooltip-color: "#e8e8e8"
+
+      ##############################
+      # Syntax-highlighting
+      #
+      # De originele string- en keyword-kleuren waren beide blauwtinten en
+      # zouden nu samenvallen met de hoofdkleur. Strings zijn groen
+      # geworden, keywords magenta, zodat alle tokens uit elkaar blijven.
+      ##############################
+      code-editor-background-color: "#161616"
+      markdown-code-background-color: "#161616"
+      codemirror-meta: "#e8e8e8"
+      codemirror-property: "#4ac4ff"
+      codemirror-atom: "#4ac4ff"
+      codemirror-string: "#9ccc65"
+      codemirror-keyword: "#e07bff"
+      codemirror-number: "#ff8a3d"
+      codemirror-comment: "#9aa0a6"
+      codemirror-operator: "#e8e8e8"
+      codemirror-variable: "#e8e8e8"
+      codemirror-variable-2: "#4ac4ff"
+      codemirror-variable-3: "#ffd54f"
+      codemirror-def: "#ffd54f"
+      codemirror-tag: "#e07bff"
+      codemirror-attribute: "#4ac4ff"
+
+      ##############################
+      # App header
+      ##############################
+      app-header-background-color: "#161616"
+      app-header-text-color: "#e8e8e8"
+      app-header-selection-bar-color: "#00b0ff"
+
+      ##############################
+      # Sidebar
+      ##############################
+      sidebar-background-color: "#161616"
+      sidebar-icon-color: "#9aa0a6"
+      sidebar-text-color: "#e8e8e8"
+      sidebar-selected-background-color: "#1e1e1e"
+      sidebar-selected-icon-color: "#00b0ff"
+      sidebar-selected-text-color: "#00b0ff"
+
+      ##############################
+      # Iconen / states
+      ##############################
+      state-icon-color: "#9aa0a6"
+      state-icon-active-color: "#00b0ff"
+      paper-item-icon-color: "#9aa0a6"
+      paper-item-icon-active-color: "#00b0ff"
+      state-active-color: "#00b0ff"
+
+      ##############################
+      # Klimaat-statuskleuren
+      #
+      # LET OP: 'cool' is standaard al blauw in HA. Met een blauw thema
+      # is het verschil tussen 'koelen' en 'actief' minder duidelijk;
+      # heat blijft daarom nadrukkelijk oranje.
+      ##############################
+      state-climate-cool-color: "#00b0ff"
+      state-climate-auto-color: "#00b0ff"
+      state-climate-heat_cool-color: "#00b0ff"
+      state-climate-dry-color: "#4ac4ff"
+      state-climate-fan_only-color: "#0096d8"
+      state-climate-heat-color: "#ff9800"
+      state-climate-idle-color: "#6a6a6a"
+      state-climate-off-color: "#6a6a6a"
+
+      ##############################
+      # Toggles / switches
+      #
+      # Donkere thumb op een lichte track, net als in het lime-origineel.
+      ##############################
+      ha-switch-checked-background-color: "#00b0ff"
+      ha-switch-checked-background-color-hover: "#3ac0ff"
+      ha-switch-checked-thumb-background-color: "#0a1620"
+      ha-switch-checked-thumb-background-color-hover: "#0a1620"
+      ha-switch-checked-border-color: "#00b0ff"
+      ha-switch-checked-thumb-border-color: "#0a1620"
+
+      switch-checked-color: "#00b0ff"
+      switch-checked-track-color: "#00b0ff"
+      switch-checked-button-color: "#0a1620"
+      switch-unchecked-button-color: "#6b6b6b"
+      switch-unchecked-track-color: "#3a3a3a"
+
+      mdc-switch-selected-track-color: "#00b0ff"
+      mdc-switch-selected-hover-track-color: "#00b0ff"
+      mdc-switch-selected-focus-track-color: "#00b0ff"
+      mdc-switch-selected-pressed-track-color: "#00b0ff"
+      mdc-switch-selected-handle-color: "#0a1620"
+      mdc-switch-selected-hover-handle-color: "#0a1620"
+      mdc-switch-selected-focus-handle-color: "#0a1620"
+      mdc-switch-selected-pressed-handle-color: "#0a1620"
+      mdc-switch-selected-icon-color: "#0a1620"
+
+      paper-toggle-button-checked-bar-color: "#00b0ff"
+      paper-toggle-button-checked-button-color: "#0a1620"
+
+      ##############################
+      # Sliders
+      ##############################
+      paper-slider-active-color: "#00b0ff"
+      paper-slider-knob-color: "#00b0ff"
+      paper-slider-pin-color: "#00b0ff"
+      paper-slider-secondary-color: "#e040fb"
+
+      ##############################
+      # Binary sensors
+      ##############################
+      state-binary_sensor-active-color: "#00b0ff"
+
+      ##############################
+      # Overige accenten
+      ##############################
+      label-badge-background-color: "#1e1e1e"
+      label-badge-border-color: "#e040fb"
+      table-row-background-color: "#1e1e1e"
+      table-row-alternative-background-color: "#181818"
+      mdc-theme-primary: "#00b0ff"
+      mdc-theme-secondary: "#e040fb"
+
+      ##############################
+      # Kleuren voor de card-mod-invoervelden (zie card-mod-card)
+      ##############################
+      compact-input-fill-color: "#262626"
+      compact-input-ink-color: "#e8e8e8"
+      compact-input-label-color: "#9aa0a6"
+      compact-input-idle-line-color: "rgba(255,255,255,0.20)"
+      compact-input-hover-line-color: "rgba(255,255,255,0.40)"
+
+    ##########################################################################
+    # LICHT
+    ##########################################################################
+    light:
+      ##############################
+      # Basiskleuren (licht)
+      #
+      # Electric blue #00b0ff is op wit te licht voor tekst (2.4:1).
+      # In licht is de primaire kleur #0079af (4.8:1); tekst in de
+      # zijbalk gebruikt #006a99 (5.1:1 op #eceef1).
+      ##############################
+      primary-color: "#0079af"
+      accent-color: "#0079af"
+      light-primary-color: "#4ac4ff"
+      dark-primary-color: "#0a5c86"
+
+      ##############################
+      # Kleuren-palette (HA 2025.8+) - gelijk aan donker
+      ##############################
+      ha-color-primary-05: "#04121a"
+      ha-color-primary-10: "#062434"
+      ha-color-primary-20: "#08405e"
+      ha-color-primary-30: "#0a5c86"
+      ha-color-primary-40: "#0079af"
+      ha-color-primary-50: "#0096d8"
+      ha-color-primary-60: "#00b0ff"   # basis electric-blue-highlight
+      ha-color-primary-70: "#4ac4ff"
+      ha-color-primary-80: "#85d7ff"
+      ha-color-primary-90: "#c0eaff"
+      ha-color-primary-95: "#e3f5ff"
+
+      graph-color-1: "#0096d8"   # electric blue
+      graph-color-2: "#b02cc9"   # magenta
+      graph-color-3: "#0a5c86"   # blauw donker
+      graph-color-4: "#e040fb"   # magenta licht
+      graph-color-5: "#4ac4ff"   # blauw licht
+      graph-color-6: "#7b1fa2"   # magenta donker
+
+      ##############################
+      # Achtergronden
+      #
+      # Lichtgrijs canvas met witte kaarten. De gradient op het
+      # dashboard-canvas heeft een lichte blauwe-zweem.
+      ##############################
+      primary-background-color: "#f4f5f7"
+      secondary-background-color: "#eceef1"
+      divider-color: "rgba(0,0,0,0.08)"
+
+      lovelace-background: "radial-gradient(120% 80% at 50% 0%, #e6f2f9 0%, #f4f5f7 55%, #f1f2f4 100%)"
+
+      ##############################
+      # Tekst
+      #
+      # text-primary-color = tekst OP de primaire kleur. De primaire kleur
+      # is in licht donker genoeg voor witte tekst.
+      ##############################
+      primary-text-color: "#1c1d1f"
+      secondary-text-color: "#5f6368"
+      disabled-text-color: "#a0a4a8"
+      text-primary-color: "#ffffff"
+
+      ##############################
+      # Kaarten - PLAT & MAT, met gradient-rand (glow linksboven)
+      #
+      # Zelfde truc als in donker: laag 1 (padding-box) is het witte
+      # kaartvlak, laag 2 (border-box) de gradient onder de transparante
+      # rand. De neutrale randlijn is 8% zwart: 4% wit valt op wit weg.
+      ##############################
+      card-background-color: "#ffffff"
+      ha-card-background: >-
+        linear-gradient(#ffffff, #ffffff) padding-box,
+        radial-gradient(70px 4px at 0% 0%,
+          rgba(0,150,216,1.00) 0%,
+          rgba(0,150,216,0.55) 35%,
+          rgba(0,150,216,0.20) 70%,
+          rgba(0,0,0,0.08) 100%) border-box
+      ha-card-border-radius: "3px"
+      ha-card-border-width: "1px"
+      ha-card-border-color: "transparent"
+      ha-card-box-shadow: "none"
+      ha-card-header-font-size: "18px"
+
+      ##############################
+      # Invoervelden / dropdowns / selects
+      ##############################
+      input-fill-color: "#eef0f2"
+      input-disabled-fill-color: "#f5f6f7"
+      input-ink-color: "#1c1d1f"
+      input-label-ink-color: "#5f6368"
+      input-disabled-ink-color: "#8a8e93"
+      input-placeholder-color: "#6b7076"
+      input-dropdown-icon-color: "#006a99"
+      input-idle-line-color: "rgba(0,0,0,0.22)"
+      input-hover-line-color: "rgba(0,0,0,0.42)"
+      input-disabled-line-color: "rgba(0,0,0,0.10)"
+      input-outlined-idle-border-color: "rgba(0,0,0,0.22)"
+      input-outlined-hover-border-color: "rgba(0,0,0,0.42)"
+      input-outlined-disabled-border-color: "rgba(0,0,0,0.10)"
+
+      mdc-text-field-fill-color: "#eef0f2"
+      mdc-text-field-disabled-fill-color: "#f5f6f7"
+      mdc-text-field-ink-color: "#1c1d1f"
+      mdc-text-field-label-ink-color: "#5f6368"
+      mdc-text-field-idle-line-color: "rgba(0,0,0,0.22)"
+      mdc-text-field-hover-line-color: "rgba(0,0,0,0.42)"
+      mdc-select-fill-color: "#eef0f2"
+      mdc-select-disabled-fill-color: "#f5f6f7"
+      mdc-select-ink-color: "#1c1d1f"
+      mdc-select-label-ink-color: "#5f6368"
+      mdc-select-idle-line-color: "rgba(0,0,0,0.22)"
+      mdc-select-hover-line-color: "rgba(0,0,0,0.42)"
+      mdc-select-dropdown-icon-color: "#006a99"
+
+      mdc-theme-surface: "#ffffff"
+      mdc-theme-on-surface: "#1c1d1f"
+      mdc-dialog-scrim-color: "rgba(0,0,0,0.32)"
+      menu-surface-background-color: "#ffffff"
+
+      paper-input-container-color: "#5f6368"
+      paper-input-container-focus-color: "#0079af"
+      paper-input-container-input-color: "#1c1d1f"
+
+      ##############################
+      # Kaart-/YAML-editor, ha-form & dialogen
+      #
+      # Warning/danger-tekst is donkerder dan in donker, zodat die op
+      # de lichte vulling leesbaar blijft (>= 4.5:1).
+      ##############################
+      ha-color-form-background: "#eef0f2"
+      ha-color-form-background-hover: "#e6e8eb"
+      ha-color-form-background-disabled: "rgba(238,240,242,0.5)"
+      ha-color-fill-neutral-quiet-hover: "#e6e8eb"
+
+      ha-color-fill-warning-quiet-resting: "rgba(255,152,0,0.10)"
+      ha-color-fill-warning-quiet-hover: "rgba(255,152,0,0.16)"
+      ha-color-fill-warning-normal-resting: "rgba(255,152,0,0.14)"
+      ha-color-fill-warning-normal-hover: "rgba(255,152,0,0.20)"
+      ha-color-fill-warning-normal-active: "rgba(255,152,0,0.26)"
+      ha-color-on-warning-quiet: "#a14a00"
+      ha-color-on-warning-normal: "#a14a00"
+      ha-color-fill-danger-quiet-resting: "rgba(198,40,40,0.08)"
+      ha-color-fill-danger-quiet-hover: "rgba(198,40,40,0.14)"
+      ha-color-fill-danger-normal-resting: "rgba(198,40,40,0.12)"
+      ha-color-fill-danger-normal-hover: "rgba(198,40,40,0.18)"
+      ha-color-fill-danger-normal-active: "rgba(198,40,40,0.24)"
+      ha-color-on-danger-quiet: "#c62828"
+      ha-color-on-danger-normal: "#c62828"
+      input-background-color: "#eef0f2"
+      input-disabled-label-ink-color: "#8a8e93"
+      clear-background-color: "#ffffff"
+      data-table-background-color: "#ffffff"
+      paper-dialog-background-color: "#ffffff"
+      ha-dialog-border-radius: "4px"
+      ha-tooltip-background-color: "#2a2b2e"
+      ha-tooltip-color: "#f2f2f2"
+
+      ##############################
+      # Syntax-highlighting
+      #
+      # Donkere varianten van de tokenkleuren; allemaal >= 4.5:1 op de
+      # lichte editor-achtergrond.
+      ##############################
+      code-editor-background-color: "#f6f7f8"
+      markdown-code-background-color: "#f6f7f8"
+      codemirror-meta: "#1c1d1f"
+      codemirror-property: "#006a99"
+      codemirror-atom: "#006a99"
+      codemirror-string: "#2e7d32"
+      codemirror-keyword: "#9c27b0"
+      codemirror-number: "#b45309"
+      codemirror-comment: "#6b7076"
+      codemirror-operator: "#1c1d1f"
+      codemirror-variable: "#1c1d1f"
+      codemirror-variable-2: "#006a99"
+      codemirror-variable-3: "#8d6e00"
+      codemirror-def: "#8d6e00"
+      codemirror-tag: "#9c27b0"
+      codemirror-attribute: "#006a99"
+
+      ##############################
+      # App header
+      ##############################
+      app-header-background-color: "#ffffff"
+      app-header-text-color: "#1c1d1f"
+      app-header-selection-bar-color: "#0079af"
+
+      ##############################
+      # Sidebar
+      ##############################
+      sidebar-background-color: "#fafbfc"
+      sidebar-icon-color: "#5f6368"
+      sidebar-text-color: "#1c1d1f"
+      sidebar-selected-background-color: "#eceef1"
+      sidebar-selected-icon-color: "#006a99"
+      sidebar-selected-text-color: "#006a99"
+
+      ##############################
+      # Iconen / states
+      ##############################
+      state-icon-color: "#5f6368"
+      state-icon-active-color: "#0088c7"
+      paper-item-icon-color: "#5f6368"
+      paper-item-icon-active-color: "#0088c7"
+      state-active-color: "#0088c7"
+
+      ##############################
+      # Klimaat-statuskleuren
+      #
+      # Heat is donkerder oranje dan in donker: #ff9800 is op wit te licht.
+      ##############################
+      state-climate-cool-color: "#0079af"
+      state-climate-auto-color: "#0079af"
+      state-climate-heat_cool-color: "#0079af"
+      state-climate-dry-color: "#0096d8"
+      state-climate-fan_only-color: "#0088c7"
+      state-climate-heat-color: "#e65100"
+      state-climate-idle-color: "#9aa0a6"
+      state-climate-off-color: "#9aa0a6"
+
+      ##############################
+      # Toggles / switches
+      #
+      # Witte thumb op een middelblauwe track (#0088c7, 3.9:1 met de thumb).
+      ##############################
+      ha-switch-checked-background-color: "#0088c7"
+      ha-switch-checked-background-color-hover: "#0079af"
+      ha-switch-checked-thumb-background-color: "#ffffff"
+      ha-switch-checked-thumb-background-color-hover: "#ffffff"
+      ha-switch-checked-border-color: "#0088c7"
+      ha-switch-checked-thumb-border-color: "#ffffff"
+
+      switch-checked-color: "#0088c7"
+      switch-checked-track-color: "#0088c7"
+      switch-checked-button-color: "#ffffff"
+      switch-unchecked-button-color: "#fafafa"
+      switch-unchecked-track-color: "#bdc1c6"
+
+      mdc-switch-selected-track-color: "#0088c7"
+      mdc-switch-selected-hover-track-color: "#0088c7"
+      mdc-switch-selected-focus-track-color: "#0088c7"
+      mdc-switch-selected-pressed-track-color: "#0088c7"
+      mdc-switch-selected-handle-color: "#ffffff"
+      mdc-switch-selected-hover-handle-color: "#ffffff"
+      mdc-switch-selected-focus-handle-color: "#ffffff"
+      mdc-switch-selected-pressed-handle-color: "#ffffff"
+      mdc-switch-selected-icon-color: "#0a5c86"
+
+      paper-toggle-button-checked-bar-color: "#0088c7"
+      paper-toggle-button-checked-button-color: "#ffffff"
+
+      ##############################
+      # Sliders
+      ##############################
+      paper-slider-active-color: "#0088c7"
+      paper-slider-knob-color: "#0079af"
+      paper-slider-pin-color: "#0079af"
+      paper-slider-secondary-color: "#9c27b0"
+
+      ##############################
+      # Binary sensors
+      ##############################
+      state-binary_sensor-active-color: "#0088c7"
+
+      ##############################
+      # Overige accenten
+      ##############################
+      label-badge-background-color: "#ffffff"
+      label-badge-border-color: "#9c27b0"
+      table-row-background-color: "#ffffff"
+      table-row-alternative-background-color: "#f7f8f9"
+      mdc-theme-primary: "#0079af"
+      mdc-theme-secondary: "#9c27b0"
+
+      ##############################
+      # Kleuren voor de card-mod-invoervelden (zie card-mod-card)
+      ##############################
+      compact-input-fill-color: "#eef0f2"
+      compact-input-ink-color: "#1c1d1f"
+      compact-input-label-color: "#5f6368"
+      compact-input-idle-line-color: "rgba(0,0,0,0.22)"
+      compact-input-hover-line-color: "rgba(0,0,0,0.42)"
