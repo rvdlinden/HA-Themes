@@ -23,10 +23,25 @@ jobs:
           with open(path, encoding="utf-8") as f:
               data = yaml.safe_load(f)
           errors = 0
+          def error(msg):
+              global errors
+              print(f"::error file={path}::{msg}")
+              errors += 1
           for name, theme in data.items():
               if theme.get("card-mod-theme") != name:
-                  print(f"::error file={path}::card-mod-theme of '{name}' does not match the theme name")
-                  errors += 1
+                  error(f"card-mod-theme of '{name}' does not match the theme name")
+              modes = theme.get("modes", {})
+              if set(modes) != {"dark", "light"}:
+                  error(f"'{name}' must define both a dark and a light mode")
+                  continue
+              only_dark = set(modes["dark"]) - set(modes["light"])
+              only_light = set(modes["light"]) - set(modes["dark"])
+              if only_dark or only_light:
+                  error(f"'{name}' modes differ: dark-only {sorted(only_dark)}, light-only {sorted(only_light)}")
+              for scope, values in (("top-level", theme), ("dark", modes["dark"]), ("light", modes["light"])):
+                  for key, value in values.items():
+                      if key != "modes" and not isinstance(value, str):
+                          error(f"'{name}' {scope} value of '{key}' must be a string")
           print(f"Found {len(data)} themes: {', '.join(data)}")
           sys.exit(1 if errors else 0)
           PY
